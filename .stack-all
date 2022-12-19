@@ -1,0 +1,3 @@
+[versions]
+# lts-13 missing whenM and pipeBool
+oldest = lts-14
