@@ -2,15 +2,16 @@
 
 module Main (main) where
 
-import Control.Monad (unless)
+import Control.Monad (unless, void)
 import SimpleCmd
 import System.Directory (createDirectoryIfMissing, doesFileExist, renameFile)
 import System.Environment.XDG.BaseDir (getUserCacheDir)
 import System.FilePath ((</>))
+import System.IO (BufferMode(..), hSetBuffering, stdout)
 
--- --preview command
 main :: IO ()
 main = do
+  hSetBuffering stdout NoBuffering
   let rpmostree = "/usr/bin/rpm-ostree"
   exists <- doesFileExist rpmostree
   unless exists $ error' $ rpmostree +-+ ": not found"
@@ -27,8 +28,14 @@ main = do
     then renameFile previous latest
     else do
     (diff,_err) <- cmdStdErr "diff" ["-u", previous, latest]
-    if null diff
+    if length (lines diff) <= 2
+      -- FIXME print old timestamp
       then putStrLn "no new changes"
       else do
       putStrLn $ "Changes since last rpm-ostree update:\n" ++ diff
+      putStr "Press Enter to update:"
+      void getLine
       cmd_ rpmostree ["update"]
+      putStr "Press Enter for changelog:"
+      void getLine
+      cmd_ rpmostree ["db", "diff", "-c"]
