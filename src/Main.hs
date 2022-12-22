@@ -32,7 +32,7 @@ main = do
       -- FIXME print old timestamp
       then putStrLn "no new changes"
       else do
-      putStrLn $ "Changes since last rpm-ostree update:\n" ++ diff
+      putStrLn $ "\nChanges since last rpm-ostree update:\n" ++ diff
       putStr "Press Enter to update:"
       void getLine
       cmd_ rpmostree ["update"]
