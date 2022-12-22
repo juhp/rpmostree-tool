@@ -27,7 +27,7 @@ main = do
   if not ok
     then renameFile previous latest
     else do
-    (diff,_err) <- cmdStdErr "diff" ["-u", previous, latest]
+    (diff,_err) <- cmdStdErr "diff" ["-u0", previous, latest]
     if length (lines diff) <= 2
       -- FIXME print old timestamp
       then putStrLn "no new changes"
