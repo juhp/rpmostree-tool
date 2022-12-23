@@ -2,7 +2,7 @@
 
 module Main (main) where
 
-import Control.Monad (unless, void, when)
+import Control.Monad.Extra (unless, void, whenJust)
 import Data.List (isInfixOf)
 import SimpleCmd
 import System.Directory (createDirectoryIfMissing, doesFileExist, renameFile,
@@ -20,26 +20,15 @@ main = do
   staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
   cachedir <- getUserCacheDir "rpmostree-updates"
   createDirectoryIfMissing True cachedir
-  let latest = cachedir </> "latest-update"
-      previous = cachedir </> "previous-update"
-  haveCache <-
-    if staged
-    then do
-      have <- doesFileExist latest
-      when have $
-        renameFile latest previous
-      return have
-    else do
-      removeFile latest
-      return False
+  (latest, mprevious) <- cacheFiles staged cachedir "update"
   putStrLn "Preview:"
   ok <- pipeBool (rpmostree, ["update", "--preview"]) ("tee", [latest])
   if not ok
     then
-    when haveCache $
+    whenJust mprevious $ \previous ->
     renameFile previous latest
     else do
-    when haveCache $ do
+    whenJust mprevious $ \previous -> do
       (diff,_err) <- cmdStdErr "diff" ["-u0", previous, latest]
       let diffs = lines diff
       if length diffs <= 2
@@ -52,5 +41,23 @@ main = do
     cmd_ rpmostree ["update"]
     putStr "Press Enter for changelog:"
     void getLine
-    -- FIXME save changelog and diff it
-    pipe_ (rpmostree,["db", "diff", "-c"]) ("less",[])
+    (latestClog,mpreviousClog) <- cacheFiles staged cachedir "changelog"
+    pipe3_ (rpmostree,["db", "diff", "-c"]) ("tee", [latestClog]) ("less",[])
+
+cacheFiles :: Bool -> FilePath -> FilePath -> IO (FilePath, Maybe FilePath)
+cacheFiles staged dir suffix = do
+  let latestCache = dir </> "latest-" ++ suffix
+      previousCache =  dir </> "previous-" ++ suffix
+  mprevious <-
+    if staged
+      then do
+      have <- doesFileExist latestCache
+      if have
+        then do
+        renameFile latestCache previousCache
+        return $ Just previousCache
+        else return Nothing
+    else do
+      removeFile latestCache
+      return Nothing
+  return (latestCache,mprevious)

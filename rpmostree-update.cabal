@@ -30,6 +30,7 @@ executable rpmostree-update
   hs-source-dirs:      src
   build-depends:       base < 5,
                        directory,
+                       extra,
                        filepath,
                        simple-cmd,
                        xdg-basedir
