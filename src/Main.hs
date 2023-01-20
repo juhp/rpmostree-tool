@@ -55,7 +55,7 @@ cachedRpmOstree staged cachedir mode = do
       Just previous -> do
         (diff,_err) <- cmdStdErr "diff" ["-u0", previous, latest]
         let diffs = lines diff
-        if length diffs <= 2
+        if length diffs <= 5
           -- FIXME print old timestamp
           then do
           putStrLn "no new changes"
