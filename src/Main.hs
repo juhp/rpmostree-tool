@@ -14,26 +14,37 @@ import System.IO (BufferMode(..), hSetBuffering, stdout)
 rpmostree :: String
 rpmostree = "/usr/bin/rpm-ostree"
 
+data Mode = Update | Changelog
+
+instance Show Mode where
+  show Update = "update"
+  show Changelog = "changelog"
+
+modeArgs :: Mode -> [String]
+modeArgs Update = ["update", "--preview"]
+modeArgs Changelog = ["db", "diff", "-c"]
+
 main :: IO ()
 main = do
   hSetBuffering stdout NoBuffering
   exists <- doesFileExist rpmostree
   unless exists $ error' $ rpmostree +-+ ": not found"
-  staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
   cachedir <- getUserCacheDir "rpmostree-updates"
   createDirectoryIfMissing True cachedir
-  changed <- cachedRpmOstree staged cachedir "update" ["update", "--preview"]
+  -- whether latest is a staged deployment
+  staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
+  putStrLn "Preview:"
+  changed <- cachedRpmOstree staged cachedir Update
   when changed $ do
     prompt "to update"
     cmd_ rpmostree ["update"]
     prompt "for changelog"
-    void $ cachedRpmOstree staged cachedir "changelog" ["db", "diff", "-c"]
+    void $ cachedRpmOstree staged cachedir Changelog
 
-cachedRpmOstree :: Bool -> FilePath -> String -> [String] -> IO Bool
-cachedRpmOstree staged cachedir suffix args = do
-  (latest, mprevious) <- cacheFiles staged cachedir suffix
-  putStrLn "Preview:"
-  ok <- pipeBool (rpmostree, args) ("tee", [latest])
+cachedRpmOstree :: Bool -> FilePath -> Mode -> IO Bool
+cachedRpmOstree staged cachedir mode = do
+  (latest, mprevious) <- cacheFiles
+  ok <- pipeBool (rpmostree, modeArgs mode) ("tee", [latest])
   if not ok
     then do
     whenJust mprevious $ \previous ->
@@ -53,25 +64,32 @@ cachedRpmOstree staged cachedir suffix args = do
           putStrLn $ "\nChanges since last rpm-ostree update:\n" ++ unlines diffs
           return True
       Nothing -> return False
-
--- FIXME check timestamps?
-cacheFiles :: Bool -> FilePath -> FilePath -> IO (FilePath, Maybe FilePath)
-cacheFiles staged dir suffix = do
-  let latestCache = dir </> "latest-" ++ suffix
-      previousCache =  dir </> "previous-" ++ suffix
-  mprevious <-
-    if staged
-      then do
-      have <- doesFileExist latestCache
-      if have
+  where
+    cacheFiles :: IO (FilePath, Maybe FilePath)
+    cacheFiles = do
+      let latestCache = cachedir </> "latest-" ++ show mode
+          previousCache =  cachedir </> "previous-" ++ show mode
+      haveLatest <- doesFileExist latestCache
+      mprevious <-
+        if haveLatest
         then do
-        renameFile latestCache previousCache
-        return $ Just previousCache
+          useCache <-
+            case mode of
+              Update -> return staged
+              Changelog -> do
+                -- ostree diff commit from: booted deployment (81ad560ed850559259e46d5739e8d9ac8714fbcbbd0d24257a8934db7730edab)
+                cachedBootedDeployment <- init . tail . last . words <$> cmd "head" ["-1", latestCache]
+                bootedChecksum <- cmd rpmostree ["status", "-b", "-J", "$.deployments[0].checksum"]
+                return $ cachedBootedDeployment `isInfixOf` bootedChecksum
+          if useCache
+            then do
+            renameFile latestCache previousCache
+            return $ Just previousCache
+            else do
+            removeFile latestCache
+            return Nothing
         else return Nothing
-    else do
-      removeFile latestCache
-      return Nothing
-  return (latestCache,mprevious)
+      return (latestCache,mprevious)
 
 prompt :: String -> IO ()
 prompt txt = do
