@@ -43,7 +43,8 @@ main = do
 
 cachedRpmOstree :: Bool -> FilePath -> Mode -> IO Bool
 cachedRpmOstree staged cachedir mode = do
-  (latest, mprevious) <- cacheFiles
+  let latest = cachedir </> "latest-" ++ show mode
+  mprevious <- cacheFile latest
   ok <- pipeBool (rpmostree, modeArgs mode) ("tee", [latest])
   if not ok
     then do
@@ -65,31 +66,28 @@ cachedRpmOstree staged cachedir mode = do
           return True
       Nothing -> return False
   where
-    cacheFiles :: IO (FilePath, Maybe FilePath)
-    cacheFiles = do
-      let latestCache = cachedir </> "latest-" ++ show mode
-          previousCache =  cachedir </> "previous-" ++ show mode
+    cacheFile :: FilePath -> IO (Maybe FilePath)
+    cacheFile latestCache = do
+      let previousCache =  cachedir </> "previous-" ++ show mode
       haveLatest <- doesFileExist latestCache
-      mprevious <-
-        if haveLatest
-        then do
-          useCache <-
-            case mode of
-              Update -> return staged
-              Changelog -> do
-                -- ostree diff commit from: booted deployment (81ad560ed850559259e46d5739e8d9ac8714fbcbbd0d24257a8934db7730edab)
-                cachedBootedDeployment <- init . tail . last . words <$> cmd "head" ["-1", latestCache]
-                bootedChecksum <- cmd rpmostree ["status", "-b", "-J", "$.deployments[0].checksum"]
-                return $ cachedBootedDeployment `isInfixOf` bootedChecksum
-          if useCache
-            then do
-            renameFile latestCache previousCache
-            return $ Just previousCache
-            else do
-            removeFile latestCache
-            return Nothing
-        else return Nothing
-      return (latestCache,mprevious)
+      if haveLatest
+      then do
+        useCache <-
+          case mode of
+            Update -> return staged
+            Changelog -> do
+              -- ostree diff commit from: booted deployment (81ad560ed850559259e46d5739e8d9ac8714fbcbbd0d24257a8934db7730edab)
+              cachedBootedDeployment <- init . tail . last . words <$> cmd "head" ["-1", latestCache]
+              bootedChecksum <- cmd rpmostree ["status", "-b", "-J", "$.deployments[0].checksum"]
+              return $ cachedBootedDeployment `isInfixOf` bootedChecksum
+        if useCache
+          then do
+          renameFile latestCache previousCache
+          return $ Just previousCache
+          else do
+          removeFile latestCache
+          return Nothing
+      else return Nothing
 
 prompt :: String -> IO ()
 prompt txt = do
