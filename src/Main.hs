@@ -35,7 +35,7 @@ main = do
   staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
   putStrLn "Preview:"
   changed <- cachedRpmOstree staged cachedir Update
-  when changed $ do
+  when (changed || not staged) $ do
     prompt "to update"
     cmd_ rpmostree ["update"]
     prompt "for changelog"
