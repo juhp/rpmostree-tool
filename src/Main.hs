@@ -3,7 +3,7 @@
 module Main (main) where
 
 import Control.Monad.Extra (unless, void, when, whenJust)
-import Data.List (isInfixOf)
+import Data.List (isPrefixOf, isInfixOf)
 import SimpleCmd
 import System.Directory (createDirectoryIfMissing, doesFileExist, renameFile,
                          removeFile)
@@ -56,14 +56,14 @@ cachedRpmOstree staged cachedir mode = do
       Just previous -> do
         (diff,_err) <- cmdStdErr "diff" ["-u0", previous, latest]
         let diffs = lines diff
-        if length diffs <= 5
+        when (length (filter (not . noise) diffs) > 3) $
+          putStrLn $ "\nDiff with last rpm-ostree update:\n" ++ unlines diffs
+        if length diffs <= 9
           -- FIXME print old timestamp
           then do
           putStrLn "no new changes"
           return False
-          else do
-          putStrLn $ "\nChanges since last rpm-ostree update:\n" ++ unlines diffs
-          return True
+          else return True
       Nothing -> return False
   where
     cacheFile :: FilePath -> IO (Maybe FilePath)
@@ -71,7 +71,7 @@ cachedRpmOstree staged cachedir mode = do
       let previousCache =  cachedir </> "previous-" ++ show mode
       haveLatest <- doesFileExist latestCache
       if haveLatest
-      then do
+        then do
         useCache <-
           case mode of
             Update -> return staged
@@ -87,7 +87,11 @@ cachedRpmOstree staged cachedir mode = do
           else do
           removeFile latestCache
           return Nothing
-      else return Nothing
+        else return Nothing
+
+    noise :: String -> Bool
+    noise cs = "@@ " `isPrefixOf` cs ||
+               " 0 content objects fetched; " `isInfixOf` cs
 
 prompt :: String -> IO ()
 prompt txt = do
