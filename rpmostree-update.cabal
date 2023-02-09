@@ -1,5 +1,5 @@
 name:                rpmostree-update
-version:             0.1.0
+version:             0.1.1
 synopsis:            rpm-ostree update wrapper that caches change info
 description:
         A thin wrapper of "rpm-ostree update", which outputs diff of changes

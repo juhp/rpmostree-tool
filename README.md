@@ -10,7 +10,7 @@ Still experimental
 ```shellsession
 $ rpmostree-update
 Preview:
-2 metadata, 0 content objects fetched; 52 KiB transferred in 3 seconds; 0 bytes content written
+2 metadata, 0 content objects fetched; 53 KiB transferred in 8 seconds; 0 bytes content written
 Enabled rpm-md repositories: fedora-cisco-openh264 updates fedora updates-archive
 Updating metadata for 'fedora-cisco-openh264'...done
 Updating metadata for 'updates'...done
@@ -18,200 +18,165 @@ Updating metadata for 'fedora'...done
 Updating metadata for 'updates-archive'...done
 Importing rpm-md...done
 rpm-md repo 'fedora-cisco-openh264'; generated: 2022-10-06T11:01:40Z solvables: 4
-rpm-md repo 'updates'; generated: 2023-01-21T03:21:42Z solvables: 16165
-rpm-md repo 'fedora'; generated: 2022-11-10T09:30:00Z solvables: 66822
-rpm-md repo 'updates-archive'; generated: 2023-01-21T03:52:26Z solvables: 19091
+rpm-md repo 'updates'; generated: 2023-02-09T08:58:55Z solvables: 18329
+rpm-md repo 'fedora'; generated: 2022-11-05T08:04:38Z solvables: 66822
+rpm-md repo 'updates-archive'; generated: 2023-02-09T09:27:37Z solvables: 23277
 Note: --check and --preview may be unreliable.  See https://github.com/coreos/rpm-ostree/issues/1579
 AvailableUpdate:
-        Version: 37.20230120.0 (2023-01-20T00:46:10Z)
-         Commit: 99a409a04f7249f49224be6b07f45c082ed82ffa83d75c2eaddc00d66a999a4c
+        Version: 37.20230209.0 (2023-02-09T00:46:24Z)
+         Commit: 319016f4e0ab3078cec37752128ff431bd77e3e71a122a5586df46b79097f050
    GPGSignature: 1 signature
-                 Signature made Sat 21 Jan 2023 04:25:29 AM using RSA key ID F55AD3FB5323552A
+                 Signature made Thu 09 Feb 2023 04:54:27 PM using RSA key ID F55AD3FB5323552A
                  Good signature from "Fedora <fedora-37-primary@fedoraproject.org>"
-  SecAdvisories: FEDORA-2023-dbe1157188  Low        nautilus-43.2-1.fc37.x86_64
-                 FEDORA-2023-dbe1157188  Low        nautilus-extensions-43.2-1.fc37.x86_64
-                   CVE-2022-37290 nautilus: NULL pointer dereference via pasting crafted zip file
-                   https://bugzilla.redhat.com/show_bug.cgi?id=2149911
-                 FEDORA-2023-9718cc6113  Important  git-core-2.39.1-1.fc37.x86_64
-                 FEDORA-2023-9718cc6113  Important  git-core-doc-2.39.1-1.fc37.noarch
-                   CVE-2022-23521 git: gitattributes parsing integer overflow
-                   https://bugzilla.redhat.com/show_bug.cgi?id=2162055
-                   CVE-2022-41903 git: Heap overflow in `git archive`, `git log --format` leading to RCE
-                   https://bugzilla.redhat.com/show_bug.cgi?id=2162056
-                 FEDORA-2023-ee8bfe7d72  Critical   firefox-109.0-1.fc37.x86_64
-                 FEDORA-2023-ee8bfe7d72  Critical   firefox-langpacks-109.0-1.fc37.x86_64
-       Upgraded: ModemManager 1.18.8-2.fc37 -> 1.18.12-1.fc37
-                 ModemManager-glib 1.18.8-2.fc37 -> 1.18.12-1.fc37
-                 NetworkManager 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-adsl 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-bluetooth 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-config-connectivity-fedora 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-libnm 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-ppp 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-wifi 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 NetworkManager-wwan 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-                 alsa-sof-firmware 2.2.3-1.fc37 -> 2.2.4-2.fc37
-                 chromium 107.0.5304.121-1.fc37 -> 109.0.5414.74-1.fc37
-                 chromium-common 107.0.5304.121-1.fc37 -> 109.0.5414.74-1.fc37
-                 container-selinux 2:2.195.1-1.fc37 -> 2:2.198.0-1.fc37
-                 distribution-gpg-keys 1.80-1.fc37 -> 1.81-1.fc37
-                 efivar-libs 38-5.fc37 -> 38-6.fc37
-                 emoji-picker 2.19.12-1.fc37 -> 2.19.13-2.fc37
-                 firefox 108.0.1-3.fc37 -> 109.0-1.fc37
-                 firefox-langpacks 108.0.1-3.fc37 -> 109.0-1.fc37
-                 flatpak 1.14.1-1.fc37 -> 1.14.1-2.fc37
-                 flatpak-libs 1.14.1-1.fc37 -> 1.14.1-2.fc37
-                 flatpak-selinux 1.14.1-1.fc37 -> 1.14.1-2.fc37
-                 flatpak-session-helper 1.14.1-1.fc37 -> 1.14.1-2.fc37
-                 git-core 2.39.0-1.fc37 -> 2.39.1-1.fc37
-                 git-core-doc 2.39.0-1.fc37 -> 2.39.1-1.fc37
-                 gjs 1.74.1-3.fc37 -> 1.74.1-5.fc37
-                 glibc 2.36-8.fc37 -> 2.36-9.fc37
-                 glibc-all-langpacks 2.36-8.fc37 -> 2.36-9.fc37
-                 glibc-common 2.36-8.fc37 -> 2.36-9.fc37
-                 glibc-gconv-extra 2.36-8.fc37 -> 2.36-9.fc37
-                 gnome-software 43.2-1.fc37 -> 43.3-1.fc37
-                 gnome-software-rpm-ostree 43.2-1.fc37 -> 43.3-1.fc37
-                 grub2-common 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 grub2-efi-ia32 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 grub2-efi-x64 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 grub2-pc 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 grub2-pc-modules 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 grub2-tools 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 grub2-tools-minimal 1:2.06-72.fc37 -> 1:2.06-75.fc37
-                 gst-editing-services 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gstreamer1 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gstreamer1-plugins-bad-free 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gstreamer1-plugins-base 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gstreamer1-plugins-good 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gstreamer1-plugins-good-qt 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gstreamer1-plugins-ugly-free 1.20.4-1.fc37 -> 1.20.5-1.fc37
-                 gtk4 4.8.2-2.fc37 -> 4.8.3-1.fc37
-                 gvfs 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-afc 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-afp 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-archive 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-client 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-fuse 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-goa 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-gphoto2 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-mtp 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 gvfs-smb 1.50.2-2.fc37 -> 1.50.3-1.fc37
-                 ibus 1.5.27-4.fc37 -> 1.5.27-5.fc37
-                 ibus-gtk3 1.5.27-4.fc37 -> 1.5.27-5.fc37
-                 ibus-gtk4 1.5.27-4.fc37 -> 1.5.27-5.fc37
-                 ibus-libs 1.5.27-4.fc37 -> 1.5.27-5.fc37
-                 ibus-setup 1.5.27-4.fc37 -> 1.5.27-5.fc37
-                 ibus-typing-booster 2.19.12-1.fc37 -> 2.19.13-2.fc37
-                 iptables-libs 1.8.8-3.fc37 -> 1.8.8-4.fc37
-                 iptables-nft 1.8.8-3.fc37 -> 1.8.8-4.fc37
-                 kernel 6.0.17-300.fc37 -> 6.1.6-200.fc37
-                 kernel-core 6.0.17-300.fc37 -> 6.1.6-200.fc37
-                 kernel-modules 6.0.17-300.fc37 -> 6.1.6-200.fc37
-                 kernel-modules-extra 6.0.17-300.fc37 -> 6.1.6-200.fc37
-                 kf5-filesystem 5.101.0-1.fc37 -> 5.102.0-1.fc37
-                 libXpm 3.5.13-8.fc37 -> 3.5.14-1.fc37
-                 libinput 1.22.0-2.fc37 -> 1.22.1-1.fc37
-                 libqmi 1.30.6-2.fc37 -> 1.30.8-1.fc37
-                 libqmi-utils 1.30.6-2.fc37 -> 1.30.8-1.fc37
-                 libsoup3 3.2.2-1.fc37 -> 3.2.2-2.fc37
-                 libwebp 1.2.4-2.fc37 -> 1.3.0-1.fc37
-                 llvm-libs 15.0.6-1.fc37 -> 15.0.7-1.fc37
-                 lz4-libs 1.9.3-5.fc37 -> 1.9.4-1.fc37
-                 mesa-dri-drivers 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-filesystem 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-libEGL 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-libGL 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-libgbm 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-libglapi 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-libxatracker 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-va-drivers 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mesa-vulkan-drivers 22.3.2-1.fc37 -> 22.3.3-1.fc37
-                 mozjs102 102.6.0-1.fc37 -> 102.7.0-1.fc37
-                 mpg123-libs 1.31.1-1.fc37 -> 1.31.2-1.fc37
-                 nautilus 43.1-1.fc37 -> 43.2-1.fc37
-                 nautilus-extensions 43.1-1.fc37 -> 43.2-1.fc37
-                 nspr 4.35.0-2.fc37 -> 4.35.0-3.fc37
-                 nss 3.85.0-1.fc37 -> 3.87.0-1.fc37
-                 nss-softokn 3.85.0-1.fc37 -> 3.87.0-1.fc37
-                 nss-softokn-freebl 3.85.0-1.fc37 -> 3.87.0-1.fc37
-                 nss-sysinit 3.85.0-1.fc37 -> 3.87.0-1.fc37
-                 nss-util 3.85.0-1.fc37 -> 3.87.0-1.fc37
-                 orca 43.0-1.fc37 -> 43.1-1.fc37
-                 pipewire 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 pipewire-alsa 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 pipewire-gstreamer 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 pipewire-jack-audio-connection-kit 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 pipewire-libs 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 pipewire-pulseaudio 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 pipewire-utils 0.3.63-1.fc37 -> 0.3.64-1.fc37
-                 poppler 22.08.0-2.fc37 -> 22.08.0-3.fc37
-                 poppler-cpp 22.08.0-2.fc37 -> 22.08.0-3.fc37
-                 poppler-glib 22.08.0-2.fc37 -> 22.08.0-3.fc37
-                 poppler-utils 22.08.0-2.fc37 -> 22.08.0-3.fc37
-                 python-unversioned-command 3.11.1-1.fc37 -> 3.11.1-3.fc37
-                 python3 3.11.1-1.fc37 -> 3.11.1-3.fc37
-                 python3-libs 3.11.1-1.fc37 -> 3.11.1-3.fc37
-                 qgnomeplatform-qt5 0.9.0-5.fc37 -> 0.9.0-6.fc37
-                 qt5-qtbase 5.15.7-1.fc37 -> 5.15.8-2.fc37
-                 qt5-qtbase-common 5.15.7-1.fc37 -> 5.15.8-2.fc37
-                 qt5-qtbase-gui 5.15.7-1.fc37 -> 5.15.8-2.fc37
-                 qt5-qtdeclarative 5.15.7-1.fc37 -> 5.15.8-1.fc37
-                 qt5-qtwayland 5.15.7-1.fc37 -> 5.15.8-1.fc37
-                 qt5-qtx11extras 5.15.7-1.fc37 -> 5.15.8-1.fc37
-                 qt5-qtxmlpatterns 5.15.7-1.fc37 -> 5.15.8-1.fc37
-                 rav1e-libs 0.5.1-5.fc37 -> 0.5.1-6.fc37
-                 selinux-policy 37.17-1.fc37 -> 37.18-1.fc37
-                 selinux-policy-targeted 37.17-1.fc37 -> 37.18-1.fc37
-                 tree 2.0.2-2.fc37 -> 2.1.0-1.fc37
-                 unbound-anchor 1.17.0-1.fc37 -> 1.17.1-1.fc37
-                 unbound-libs 1.17.0-1.fc37 -> 1.17.1-1.fc37
-                 usbutils 014-3.fc37 -> 015-1.fc37
-                 vim-data 2:9.0.1054-1.fc37 -> 2:9.0.1182-1.fc37
-                 vim-minimal 2:9.0.1054-1.fc37 -> 2:9.0.1182-1.fc37
-                 xorg-x11-server-Xorg 1.20.14-12.fc37 -> 1.20.14-15.fc37
-                 xorg-x11-server-common 1.20.14-12.fc37 -> 1.20.14-15.fc37
+  SecAdvisories: FEDORA-2023-fd4786cc83  Unknown    chromium-109.0.5414.119-1.fc37.x86_64
+                 FEDORA-2023-fd4786cc83  Unknown    chromium-common-109.0.5414.119-1.fc37.x86_64
+                   CVE-2023-0471 CVE-2023-0472 CVE-2023-0473 CVE-2023-0474 chromium: various flaws [fedora-all]
+                   https://bugzilla.redhat.com/show_bug.cgi?id=2164336
+                 FEDORA-2023-25617e952a  Moderate   tpm2-tss-3.2.2-1.fc37.x86_64
+                   CVE-2023-22745 tpm2-tss: Buffer Overlow in TSS2_RC_Decode [fedora-all]
+                   https://bugzilla.redhat.com/show_bug.cgi?id=2162612
+                 FEDORA-2023-4006357f7e  Moderate   kernel-6.1.9-200.fc37.x86_64
+                 FEDORA-2023-4006357f7e  Moderate   kernel-core-6.1.9-200.fc37.x86_64
+                 FEDORA-2023-4006357f7e  Moderate   kernel-modules-6.1.9-200.fc37.x86_64
+                 FEDORA-2023-4006357f7e  Moderate   kernel-modules-extra-6.1.9-200.fc37.x86_64
+                   CVE-2023-0597 kernel: x86/mm: Randomize per-cpu entry area
+                   https://bugzilla.redhat.com/show_bug.cgi?id=2165926
+                 FEDORA-2023-5210df1dd1  Moderate   javascriptcoregtk4.1-2.38.4-1.fc37.x86_64
+                 FEDORA-2023-5210df1dd1  Moderate   javascriptcoregtk5.0-2.38.4-1.fc37.x86_64
+                 FEDORA-2023-5210df1dd1  Moderate   webkit2gtk4.1-2.38.4-1.fc37.x86_64
+                 FEDORA-2023-5210df1dd1  Moderate   webkit2gtk5.0-2.38.4-1.fc37.x86_64
+       Upgraded: SDL2 2.26.0-1.fc37 -> 2.26.2-1.fc37
+                 buildah 1.28.0-6.fc37 -> 1.29.0-1.fc37
+                 chromium 109.0.5414.74-1.fc37 -> 109.0.5414.119-1.fc37
+                 chromium-common 109.0.5414.74-1.fc37 -> 109.0.5414.119-1.fc37
+                 cifs-utils 6.15-2.fc37 -> 7.0-1.fc37
+                 cifs-utils-info 6.15-2.fc37 -> 7.0-1.fc37
+                 container-selinux 2:2.198.0-1.fc37 -> 2:2.199.0-1.fc37
+                 containers-common 4:1-76.fc37 -> 4:1-78.fc37
+                 containers-common-extra 4:1-76.fc37 -> 4:1-78.fc37
+                 dbus-broker 32-1.fc37 -> 33-1.fc37
+                 distribution-gpg-keys 1.81-1.fc37 -> 1.82-1.fc37
+                 evolution-data-server 3.46.3-1.fc37 -> 3.46.3-2.fc37
+                 evolution-data-server-langpacks 3.46.3-1.fc37 -> 3.46.3-2.fc37
+                 exiv2 0.27.5-3.fc37 -> 0.27.6-4.fc37
+                 exiv2-libs 0.27.5-3.fc37 -> 0.27.6-4.fc37
+                 fedora-gpg-keys 37-1 -> 37-2
+                 fedora-repos 37-1 -> 37-2
+                 fedora-repos-archive 37-1 -> 37-2
+                 fedora-repos-modular 37-1 -> 37-2
+                 fedora-repos-ostree 37-1 -> 37-2
+                 firefox 109.0-4.fc37 -> 109.0.1-1.fc37
+                 firefox-langpacks 109.0-4.fc37 -> 109.0.1-1.fc37
+                 fwupd-efi 1.3-1.fc37 -> 1.4-1.fc37
+                 gnome-shell 43.2-1.fc37 -> 43.2-2.fc37
+                 hwdata 0.366-1.fc37 -> 0.367-1.fc37
+                 javascriptcoregtk4.1 2.38.3-2.fc37 -> 2.38.4-1.fc37
+                 javascriptcoregtk5.0 2.38.3-2.fc37 -> 2.38.4-1.fc37
+                 kernel 6.1.8-200.fc37 -> 6.1.9-200.fc37
+                 kernel-core 6.1.8-200.fc37 -> 6.1.9-200.fc37
+                 kernel-modules 6.1.8-200.fc37 -> 6.1.9-200.fc37
+                 kernel-modules-extra 6.1.8-200.fc37 -> 6.1.9-200.fc37
+                 libavcodec-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+                 libavformat-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+                 libavutil-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+                 libffi 3.4.2-9.fc37 -> 3.4.4-1.fc37
+                 libgusb 0.4.3-1.fc37 -> 0.4.4-1.fc37
+                 libhandy 1.8.0-1.fc37 -> 1.8.1-1.fc37
+                 libphonenumber 8.12.57-3.fc37 -> 8.12.57-6.fc37
+                 libpwquality 1.4.5-1.fc37 -> 1.4.5-3.fc37
+                 libswresample-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+                 libwacom 2.4.0-1.fc37 -> 2.6.0-1.fc37
+                 libwacom-data 2.4.0-1.fc37 -> 2.6.0-1.fc37
+                 mutter 43.2-1.fc37 -> 43.2-2.fc37
+                 qgnomeplatform-qt5 0.9.0-6.fc37 -> 0.9.0-8.fc37
+                 selinux-policy 37.18-1.fc37 -> 37.19-1.fc37
+                 selinux-policy-targeted 37.18-1.fc37 -> 37.19-1.fc37
+                 tpm2-tss 3.2.1-1.fc37 -> 3.2.2-1.fc37
+                 vim-data 2:9.0.1221-1.fc37 -> 2:9.0.1262-1.fc37
+                 vim-minimal 2:9.0.1221-1.fc37 -> 2:9.0.1262-1.fc37
+                 virtualbox-guest-additions 7.0.4-1.fc37 -> 7.0.6-1.fc37
+                 webkit2gtk4.1 2.38.3-2.fc37 -> 2.38.4-1.fc37
+                 webkit2gtk5.0 2.38.3-2.fc37 -> 2.38.4-1.fc37
+          Added: cracklib-dicts-2.9.7-30.fc37.x86_64
+                 qemu-user-static-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-aarch64-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-alpha-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-arm-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-cris-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-hexagon-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-hppa-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-m68k-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-microblaze-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-mips-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-nios2-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-or1k-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-ppc-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-riscv-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-s390x-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-sh4-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-sparc-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-x86-2:7.0.0-13.fc37.x86_64
+                 qemu-user-static-xtensa-2:7.0.0-13.fc37.x86_64
 
-Changes since last rpm-ostree update:
---- /var/home/petersen/.cache/rpmostree-updates/previous-update	2023-01-20 16:28:08.294410765 +0800
-+++ /var/home/petersen/.cache/rpmostree-updates/latest-update	2023-01-21 15:53:48.376132438 +0800
+Diff with last rpm-ostree update:
+--- /var/home/petersen/.cache/rpmostree-updates/previous-update	2023-02-09 14:51:37.536163366 +0800
++++ /var/home/petersen/.cache/rpmostree-updates/latest-update	2023-02-10 00:25:34.667648614 +0800
 @@ -1 +1 @@
--1 metadata, 0 content objects fetched; 591 B transferred in 3 seconds; 0 bytes content written
-+2 metadata, 0 content objects fetched; 52 KiB transferred in 3 seconds; 0 bytes content written
-@@ -9 +9 @@
--rpm-md repo 'updates'; generated: 2023-01-19T06:02:14Z solvables: 16068
-+rpm-md repo 'updates'; generated: 2023-01-21T03:21:42Z solvables: 16165
-@@ -11 +11 @@
--rpm-md repo 'updates-archive'; generated: 2023-01-19T06:37:57Z solvables: 18909
-+rpm-md repo 'updates-archive'; generated: 2023-01-21T03:52:26Z solvables: 19091
+-1 metadata, 0 content objects fetched; 592 B transferred in 3 seconds; 0 bytes content written
++2 metadata, 0 content objects fetched; 53 KiB transferred in 8 seconds; 0 bytes content written
+@@ -9,3 +9,3 @@
+-rpm-md repo 'updates'; generated: 2023-02-08T00:54:33Z solvables: 18246
+-rpm-md repo 'fedora'; generated: 2022-11-10T09:30:00Z solvables: 66822
+-rpm-md repo 'updates-archive'; generated: 2023-02-08T01:28:03Z solvables: 23183
++rpm-md repo 'updates'; generated: 2023-02-09T08:58:55Z solvables: 18329
++rpm-md repo 'fedora'; generated: 2022-11-05T08:04:38Z solvables: 66822
++rpm-md repo 'updates-archive'; generated: 2023-02-09T09:27:37Z solvables: 23277
 @@ -14,2 +14,2 @@
--        Version: 37.20230119.0 (2023-01-19T00:47:27Z)
--         Commit: 20d7c89fc17db70c770f7b2f2967fd466300f8480a47adb450de84be44502b36
-+        Version: 37.20230120.0 (2023-01-20T00:46:10Z)
-+         Commit: 99a409a04f7249f49224be6b07f45c082ed82ffa83d75c2eaddc00d66a999a4c
+-        Version: 37.20230206.0 (2023-02-06T00:41:17Z)
+-         Commit: fbc680ba4274752459c0d6e6a53ef61a3efbb24672073ff1e0c765896cd13792
++        Version: 37.20230209.0 (2023-02-09T00:46:24Z)
++         Commit: 319016f4e0ab3078cec37752128ff431bd77e3e71a122a5586df46b79097f050
 @@ -17 +17 @@
--                 Signature made Thu 19 Jan 2023 11:58:11 AM using RSA key ID F55AD3FB5323552A
-+                 Signature made Sat 21 Jan 2023 04:25:29 AM using RSA key ID F55AD3FB5323552A
-@@ -22,0 +23,6 @@
-+                 FEDORA-2023-9718cc6113  Important  git-core-2.39.1-1.fc37.x86_64
-+                 FEDORA-2023-9718cc6113  Important  git-core-doc-2.39.1-1.fc37.noarch
-+                   CVE-2022-23521 git: gitattributes parsing integer overflow
-+                   https://bugzilla.redhat.com/show_bug.cgi?id=2162055
-+                   CVE-2022-41903 git: Heap overflow in `git archive`, `git log --format` leading to RCE
-+                   https://bugzilla.redhat.com/show_bug.cgi?id=2162056
-@@ -36,2 +42,2 @@
--                 chromium 107.0.5304.121-1.fc37 -> 108.0.5359.124-3.fc37
--                 chromium-common 107.0.5304.121-1.fc37 -> 108.0.5359.124-3.fc37
-+                 chromium 107.0.5304.121-1.fc37 -> 109.0.5414.74-1.fc37
-+                 chromium-common 107.0.5304.121-1.fc37 -> 109.0.5414.74-1.fc37
-@@ -47,0 +54,2 @@
-+                 git-core 2.39.0-1.fc37 -> 2.39.1-1.fc37
-+                 git-core-doc 2.39.0-1.fc37 -> 2.39.1-1.fc37
+-                 Signature made Mon 06 Feb 2023 08:46:01 AM using RSA key ID F55AD3FB5323552A
++                 Signature made Thu 09 Feb 2023 04:54:27 PM using RSA key ID F55AD3FB5323552A
+@@ -22,0 +23,3 @@
++                 FEDORA-2023-25617e952a  Moderate   tpm2-tss-3.2.2-1.fc37.x86_64
++                   CVE-2023-22745 tpm2-tss: Buffer Overlow in TSS2_RC_Decode [fedora-all]
++                   https://bugzilla.redhat.com/show_bug.cgi?id=2162612
+@@ -28,0 +32,4 @@
++                 FEDORA-2023-5210df1dd1  Moderate   javascriptcoregtk4.1-2.38.4-1.fc37.x86_64
++                 FEDORA-2023-5210df1dd1  Moderate   javascriptcoregtk5.0-2.38.4-1.fc37.x86_64
++                 FEDORA-2023-5210df1dd1  Moderate   webkit2gtk4.1-2.38.4-1.fc37.x86_64
++                 FEDORA-2023-5210df1dd1  Moderate   webkit2gtk5.0-2.38.4-1.fc37.x86_64
+@@ -29,0 +37 @@
++                 buildah 1.28.0-6.fc37 -> 1.29.0-1.fc37
+@@ -31,0 +40,2 @@
++                 cifs-utils 6.15-2.fc37 -> 7.0-1.fc37
++                 cifs-utils-info 6.15-2.fc37 -> 7.0-1.fc37
+@@ -34,0 +45 @@
++                 dbus-broker 32-1.fc37 -> 33-1.fc37
+@@ -37,0 +49,2 @@
++                 exiv2 0.27.5-3.fc37 -> 0.27.6-4.fc37
++                 exiv2-libs 0.27.5-3.fc37 -> 0.27.6-4.fc37
+@@ -47,0 +61,2 @@
++                 javascriptcoregtk4.1 2.38.3-2.fc37 -> 2.38.4-1.fc37
++                 javascriptcoregtk5.0 2.38.3-2.fc37 -> 2.38.4-1.fc37
+@@ -54,0 +70 @@
++                 libffi 3.4.2-9.fc37 -> 3.4.4-1.fc37
+@@ -56,0 +73 @@
++                 libphonenumber 8.12.57-3.fc37 -> 8.12.57-6.fc37
+@@ -64,0 +82 @@
++                 tpm2-tss 3.2.1-1.fc37 -> 3.2.2-1.fc37
+@@ -67,0 +86,2 @@
++                 webkit2gtk4.1 2.38.3-2.fc37 -> 2.38.4-1.fc37
++                 webkit2gtk5.0 2.38.3-2.fc37 -> 2.38.4-1.fc37
 
 Press Enter to update:
-⠦ Receiving objects; 65% (342/522) 14.6 MB/s 101.9 MB                                                                               50 metadata, 472 content objects fetched; 100976 KiB transferred in 7 seconds; 151.6 MB content written
-Receiving objects; 65% (342/522) 14.6 MB/s 101.9 MB... done
-Checking out tree 99a409a... done
+⠈ Writing objects: 1                                                                                                                117 metadata, 110 content objects fetched; 169971 KiB transferred in 9 seconds; 336.4 MB content written
+Writing objects: 1... done
+Checking out tree 319016f... done
+Inactive requests:
+  qemu-user-static (already provided by qemu-user-static-2:7.0.0-13.fc37.x86_64)
 Enabled rpm-md repositories: fedora-cisco-openh264 updates fedora updates-archive
 Updating metadata for 'fedora-cisco-openh264'... done
 Updating metadata for 'updates'... done
@@ -219,14 +184,11 @@ Updating metadata for 'fedora'... done
 Updating metadata for 'updates-archive'... done
 Importing rpm-md... done
 rpm-md repo 'fedora-cisco-openh264'; generated: 2022-10-06T11:01:40Z solvables: 4
-rpm-md repo 'updates'; generated: 2023-01-19T06:02:14Z solvables: 16068
-rpm-md repo 'fedora'; generated: 2022-11-10T09:30:00Z solvables: 66822
-rpm-md repo 'updates-archive'; generated: 2023-01-21T03:52:26Z solvables: 19091
+rpm-md repo 'updates'; generated: 2023-02-09T08:58:55Z solvables: 18329
+rpm-md repo 'fedora'; generated: 2022-11-05T08:04:38Z solvables: 66822
+rpm-md repo 'updates-archive'; generated: 2023-02-09T09:27:37Z solvables: 23277
 Resolving dependencies... done
-Will download: 2 packages (86.9 MB)
-Downloading from 'updates-archive'... done
-Importing packages... done
-Applying 10 overrides and 272 overlays
+Applying 10 overrides and 257 overlays
 Processing packages... done
 Running pre scripts... done
 Running post scripts... done
@@ -234,643 +196,422 @@ Running posttrans scripts... done
 Writing rpmdb... done
 Writing OSTree commit... done
 Staging deployment... done
-Freed: 440.5 MB (pkgcache branches: 2)
+Freed: 190.2 MB (pkgcache branches: 0)
 Upgraded:
-  ModemManager 1.18.8-2.fc37 -> 1.18.12-1.fc37
-  ModemManager-glib 1.18.8-2.fc37 -> 1.18.12-1.fc37
-  NetworkManager 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-adsl 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-bluetooth 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-config-connectivity-fedora 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-libnm 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-ppp 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-wifi 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  NetworkManager-wwan 1:1.40.6-1.fc37 -> 1:1.40.10-1.fc37
-  alsa-sof-firmware 2.2.3-1.fc37 -> 2.2.4-2.fc37
-  chromium 107.0.5304.121-1.fc37 -> 109.0.5414.74-1.fc37
-  chromium-common 107.0.5304.121-1.fc37 -> 109.0.5414.74-1.fc37
-  container-selinux 2:2.195.1-1.fc37 -> 2:2.198.0-1.fc37
-  distribution-gpg-keys 1.80-1.fc37 -> 1.81-1.fc37
-  efivar-libs 38-5.fc37 -> 38-6.fc37
-  emoji-picker 2.19.12-1.fc37 -> 2.19.13-2.fc37
-  firefox 108.0.1-3.fc37 -> 109.0-1.fc37
-  flatpak 1.14.1-1.fc37 -> 1.14.1-2.fc37
-  flatpak-libs 1.14.1-1.fc37 -> 1.14.1-2.fc37
-  flatpak-selinux 1.14.1-1.fc37 -> 1.14.1-2.fc37
-  flatpak-session-helper 1.14.1-1.fc37 -> 1.14.1-2.fc37
-  git-core 2.39.0-1.fc37 -> 2.39.1-1.fc37
-  git-core-doc 2.39.0-1.fc37 -> 2.39.1-1.fc37
-  gjs 1.74.1-3.fc37 -> 1.74.1-5.fc37
-  glibc 2.36-8.fc37 -> 2.36-9.fc37
-  glibc-all-langpacks 2.36-8.fc37 -> 2.36-9.fc37
-  glibc-common 2.36-8.fc37 -> 2.36-9.fc37
-  glibc-gconv-extra 2.36-8.fc37 -> 2.36-9.fc37
-  gnome-software 43.2-1.fc37 -> 43.3-1.fc37
-  gnome-software-rpm-ostree 43.2-1.fc37 -> 43.3-1.fc37
-  grub2-common 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  grub2-efi-ia32 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  grub2-efi-x64 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  grub2-pc 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  grub2-pc-modules 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  grub2-tools 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  grub2-tools-minimal 1:2.06-72.fc37 -> 1:2.06-75.fc37
-  gst-editing-services 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gstreamer1 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gstreamer1-plugins-bad-free 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gstreamer1-plugins-base 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gstreamer1-plugins-good 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gstreamer1-plugins-good-qt 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gstreamer1-plugins-ugly-free 1.20.4-1.fc37 -> 1.20.5-1.fc37
-  gtk4 4.8.2-2.fc37 -> 4.8.3-1.fc37
-  gvfs 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-afc 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-afp 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-archive 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-client 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-fuse 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-goa 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-gphoto2 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-mtp 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  gvfs-smb 1.50.2-2.fc37 -> 1.50.3-1.fc37
-  ibus 1.5.27-4.fc37 -> 1.5.27-5.fc37
-  ibus-gtk3 1.5.27-4.fc37 -> 1.5.27-5.fc37
-  ibus-gtk4 1.5.27-4.fc37 -> 1.5.27-5.fc37
-  ibus-libs 1.5.27-4.fc37 -> 1.5.27-5.fc37
-  ibus-setup 1.5.27-4.fc37 -> 1.5.27-5.fc37
-  ibus-typing-booster 2.19.12-1.fc37 -> 2.19.13-2.fc37
-  iptables-libs 1.8.8-3.fc37 -> 1.8.8-4.fc37
-  iptables-nft 1.8.8-3.fc37 -> 1.8.8-4.fc37
-  kernel 6.0.17-300.fc37 -> 6.1.6-200.fc37
-  kernel-core 6.0.17-300.fc37 -> 6.1.6-200.fc37
-  kernel-modules 6.0.17-300.fc37 -> 6.1.6-200.fc37
-  kernel-modules-extra 6.0.17-300.fc37 -> 6.1.6-200.fc37
-  kf5-filesystem 5.101.0-1.fc37 -> 5.102.0-1.fc37
-  libXpm 3.5.13-8.fc37 -> 3.5.14-1.fc37
-  libinput 1.22.0-2.fc37 -> 1.22.1-1.fc37
-  libqmi 1.30.6-2.fc37 -> 1.30.8-1.fc37
-  libqmi-utils 1.30.6-2.fc37 -> 1.30.8-1.fc37
-  libsoup3 3.2.2-1.fc37 -> 3.2.2-2.fc37
-  libwebp 1.2.4-2.fc37 -> 1.3.0-1.fc37
-  llvm-libs 15.0.6-1.fc37 -> 15.0.7-1.fc37
-  lz4-libs 1.9.3-5.fc37 -> 1.9.4-1.fc37
-  mesa-dri-drivers 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-filesystem 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-libEGL 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-libGL 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-libgbm 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-libglapi 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-libxatracker 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-va-drivers 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mesa-vulkan-drivers 22.3.2-1.fc37 -> 22.3.3-1.fc37
-  mozjs102 102.6.0-1.fc37 -> 102.7.0-1.fc37
-  mpg123-libs 1.31.1-1.fc37 -> 1.31.2-1.fc37
-  nautilus 43.1-1.fc37 -> 43.2-1.fc37
-  nautilus-extensions 43.1-1.fc37 -> 43.2-1.fc37
-  nspr 4.35.0-2.fc37 -> 4.35.0-3.fc37
-  nss 3.85.0-1.fc37 -> 3.87.0-1.fc37
-  nss-softokn 3.85.0-1.fc37 -> 3.87.0-1.fc37
-  nss-softokn-freebl 3.85.0-1.fc37 -> 3.87.0-1.fc37
-  nss-sysinit 3.85.0-1.fc37 -> 3.87.0-1.fc37
-  nss-util 3.85.0-1.fc37 -> 3.87.0-1.fc37
-  orca 43.0-1.fc37 -> 43.1-1.fc37
-  pipewire 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  pipewire-alsa 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  pipewire-gstreamer 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  pipewire-jack-audio-connection-kit 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  pipewire-libs 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  pipewire-pulseaudio 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  pipewire-utils 0.3.63-1.fc37 -> 0.3.64-1.fc37
-  poppler 22.08.0-2.fc37 -> 22.08.0-3.fc37
-  poppler-cpp 22.08.0-2.fc37 -> 22.08.0-3.fc37
-  poppler-glib 22.08.0-2.fc37 -> 22.08.0-3.fc37
-  poppler-utils 22.08.0-2.fc37 -> 22.08.0-3.fc37
-  python-unversioned-command 3.11.1-1.fc37 -> 3.11.1-3.fc37
-  python3 3.11.1-1.fc37 -> 3.11.1-3.fc37
-  python3-libs 3.11.1-1.fc37 -> 3.11.1-3.fc37
-  qgnomeplatform-qt5 0.9.0-5.fc37 -> 0.9.0-6.fc37
-  qt5-qtbase 5.15.7-1.fc37 -> 5.15.8-2.fc37
-  qt5-qtbase-common 5.15.7-1.fc37 -> 5.15.8-2.fc37
-  qt5-qtbase-gui 5.15.7-1.fc37 -> 5.15.8-2.fc37
-  qt5-qtdeclarative 5.15.7-1.fc37 -> 5.15.8-1.fc37
-  qt5-qtwayland 5.15.7-1.fc37 -> 5.15.8-1.fc37
-  qt5-qtx11extras 5.15.7-1.fc37 -> 5.15.8-1.fc37
-  qt5-qtxmlpatterns 5.15.7-1.fc37 -> 5.15.8-1.fc37
-  rav1e-libs 0.5.1-5.fc37 -> 0.5.1-6.fc37
-  selinux-policy 37.17-1.fc37 -> 37.18-1.fc37
-  selinux-policy-targeted 37.17-1.fc37 -> 37.18-1.fc37
-  tree 2.0.2-2.fc37 -> 2.1.0-1.fc37
-  unbound-anchor 1.17.0-1.fc37 -> 1.17.1-1.fc37
-  unbound-libs 1.17.0-1.fc37 -> 1.17.1-1.fc37
-  usbutils 014-3.fc37 -> 015-1.fc37
-  vim-data 2:9.0.1054-1.fc37 -> 2:9.0.1182-1.fc37
-  vim-minimal 2:9.0.1054-1.fc37 -> 2:9.0.1182-1.fc37
-  xorg-x11-server-Xorg 1.20.14-12.fc37 -> 1.20.14-15.fc37
-  xorg-x11-server-common 1.20.14-12.fc37 -> 1.20.14-15.fc37
+  SDL2 2.26.0-1.fc37 -> 2.26.2-1.fc37
+  buildah 1.28.0-6.fc37 -> 1.29.0-1.fc37
+  chromium 109.0.5414.74-1.fc37 -> 109.0.5414.119-1.fc37
+  chromium-common 109.0.5414.74-1.fc37 -> 109.0.5414.119-1.fc37
+  cifs-utils 6.15-2.fc37 -> 7.0-1.fc37
+  cifs-utils-info 6.15-2.fc37 -> 7.0-1.fc37
+  container-selinux 2:2.198.0-1.fc37 -> 2:2.199.0-1.fc37
+  containers-common 4:1-76.fc37 -> 4:1-78.fc37
+  containers-common-extra 4:1-76.fc37 -> 4:1-78.fc37
+  dbus-broker 32-1.fc37 -> 33-1.fc37
+  distribution-gpg-keys 1.81-1.fc37 -> 1.82-1.fc37
+  evolution-data-server 3.46.3-1.fc37 -> 3.46.3-2.fc37
+  evolution-data-server-langpacks 3.46.3-1.fc37 -> 3.46.3-2.fc37
+  exiv2 0.27.5-3.fc37 -> 0.27.6-4.fc37
+  exiv2-libs 0.27.5-3.fc37 -> 0.27.6-4.fc37
+  fedora-gpg-keys 37-1 -> 37-2
+  fedora-repos 37-1 -> 37-2
+  fedora-repos-archive 37-1 -> 37-2
+  fedora-repos-modular 37-1 -> 37-2
+  fedora-repos-ostree 37-1 -> 37-2
+  firefox 109.0-4.fc37 -> 109.0.1-1.fc37
+  fwupd-efi 1.3-1.fc37 -> 1.4-1.fc37
+  gnome-shell 43.2-1.fc37 -> 43.2-2.fc37
+  hwdata 0.366-1.fc37 -> 0.367-1.fc37
+  javascriptcoregtk4.1 2.38.3-2.fc37 -> 2.38.4-1.fc37
+  javascriptcoregtk5.0 2.38.3-2.fc37 -> 2.38.4-1.fc37
+  kernel 6.1.8-200.fc37 -> 6.1.9-200.fc37
+  kernel-core 6.1.8-200.fc37 -> 6.1.9-200.fc37
+  kernel-modules 6.1.8-200.fc37 -> 6.1.9-200.fc37
+  kernel-modules-extra 6.1.8-200.fc37 -> 6.1.9-200.fc37
+  libavcodec-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+  libavformat-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+  libavutil-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+  libffi 3.4.2-9.fc37 -> 3.4.4-1.fc37
+  libgusb 0.4.3-1.fc37 -> 0.4.4-1.fc37
+  libhandy 1.8.0-1.fc37 -> 1.8.1-1.fc37
+  libphonenumber 8.12.57-3.fc37 -> 8.12.57-6.fc37
+  libpwquality 1.4.5-1.fc37 -> 1.4.5-3.fc37
+  libswresample-free 5.1.2-1.fc37 -> 5.1.2-6.fc37
+  libwacom 2.4.0-1.fc37 -> 2.6.0-1.fc37
+  libwacom-data 2.4.0-1.fc37 -> 2.6.0-1.fc37
+  mutter 43.2-1.fc37 -> 43.2-2.fc37
+  qgnomeplatform-qt5 0.9.0-6.fc37 -> 0.9.0-8.fc37
+  selinux-policy 37.18-1.fc37 -> 37.19-1.fc37
+  selinux-policy-targeted 37.18-1.fc37 -> 37.19-1.fc37
+  tpm2-tss 3.2.1-1.fc37 -> 3.2.2-1.fc37
+  vim-data 2:9.0.1221-1.fc37 -> 2:9.0.1262-1.fc37
+  vim-minimal 2:9.0.1221-1.fc37 -> 2:9.0.1262-1.fc37
+  virtualbox-guest-additions 7.0.4-1.fc37 -> 7.0.6-1.fc37
+  webkit2gtk4.1 2.38.3-2.fc37 -> 2.38.4-1.fc37
+  webkit2gtk5.0 2.38.3-2.fc37 -> 2.38.4-1.fc37
 Added:
-  codec2-1.0.5-1.fc37.x86_64
-  ilbc-3.0.4-3.fc37.x86_64
-  intel-mediasdk-22.5.4-1.fc37.x86_64
-  libavcodec-free-5.1.2-1.fc37.x86_64
-  libavformat-free-5.1.2-1.fc37.x86_64
-  libavutil-free-5.1.2-1.fc37.x86_64
-  libchromaprint-1.5.1-5.fc37.x86_64
-  libmodplug-1:0.8.9.0-15.fc37.x86_64
-  libopenmpt-0.6.6-1.fc37.x86_64
-  libsodium-1.0.18-10.fc37.x86_64
-  libswresample-free-5.1.2-1.fc37.x86_64
-  libvdpau-1.5-2.fc37.x86_64
-  lpcnetfreedv-0.2-12.fc37.x86_64
-  ocl-icd-2.3.1-2.fc37.x86_64
-  openpgm-5.2.122-29.fc37.x86_64
-  python3-langdetect-1.0.9-2.fc37.noarch
-  srt-libs-1.5.1-1.fc37.x86_64
-  vapoursynth-libs-58-3.fc37.x86_64
-  zeromq-4.3.4-4.fc37.x86_64
-  zimg-3.0.3-2.fc37.x86_64
+  cracklib-dicts-2.9.7-30.fc37.x86_64
+  opencore-amr-0.1.6-3.fc37.x86_64
+  vo-amrwbenc-0.1.3-18.fc37.x86_64
+  xvidcore-1.3.7-9.fc37.x86_64
+  zvbi-0.2.35-17.fc37.x86_64
 Run "systemctl reboot" to start a reboot
 Press Enter for changelog:
-ostree diff commit from: booted deployment (81ad560ed850559259e46d5739e8d9ac8714fbcbbd0d24257a8934db7730edab)
-ostree diff commit to:   pending deployment (6d2f91ba61bf5551eddb4ff94fa438af6e64fa6516ccb0495c1726331a555749)
+ostree diff commit from: booted deployment (1f8a3fde1bc1ef54f95f84d629997e55453ab3303f8c42a40ba97ac337046d35)
+ostree diff commit to:   pending deployment (161f7a880297f0b9fafa0a4871966d0b0ac00165b912aeb8fec588e14abdd226)
 Upgraded:
-  ModemManager 1.18.8-2.fc37.x86_64 -> 1.18.12-1.fc37.x86_64
-  ModemManager-glib 1.18.8-2.fc37.x86_64 -> 1.18.12-1.fc37.x86_64
-    * Tue Jan 10 2023 Lubomir Rintel <lkundrak@v3.sk> - 1.18.12-1
-    - Update to 1.18.12
+  SDL2 2.26.0-1.fc37.x86_64 -> 2.26.2-1.fc37.x86_64
+    * Sat Jan 21 2023 Tom Callaway <spot@fedoraproject.org> - 2.26.2-1
+    - update to 2.26.2
 
-  NetworkManager 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-  NetworkManager-adsl 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-  NetworkManager-bluetooth 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-  NetworkManager-config-connectivity-fedora 1:1.40.6-1.fc37.noarch -> 1:1.40.10-1.fc37.noarch
-  NetworkManager-libnm 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-  NetworkManager-ppp 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-  NetworkManager-wifi 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-  NetworkManager-wwan 1:1.40.6-1.fc37.x86_64 -> 1:1.40.10-1.fc37.x86_64
-    * Mon Jan 16 2023 Beniamino Galvani <bgalvani@redhat.com> - 1:1.40.10-1
-    - Update to 1.40.10 release.
+    * Wed Jan 18 2023 Fedora Release Engineering <releng@fedoraproject.org> - 2.26.0-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  alsa-sof-firmware 2.2.3-1.fc37.noarch -> 2.2.4-2.fc37.noarch
-    * Mon Jan 09 2023 Jaroslav Kysela <perex@perex.cz> - 2.2.4-2
-    - Update to v2.2.4
+  buildah 1.28.0-6.fc37.x86_64 -> 1.29.0-1.fc37.x86_64
+    * Tue Jan 31 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> - 1.29.0-1
+    - bump to v1.29.0
 
-  chromium 107.0.5304.121-1.fc37.x86_64 -> 109.0.5414.74-1.fc37.x86_64
-  chromium-common 107.0.5304.121-1.fc37.x86_64 -> 109.0.5414.74-1.fc37.x86_64
-    * Wed Jan 11 2023 Than Ngo <than@redhat.com> - 109.0.5414.74-1
-    - update to 109.0.5414.74
+    * Wed Jan 18 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.28.2-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-    * Tue Jan 10 2023 Than Ngo <than@redhat.com> - 108.0.5359.124-5
-    - enable qt backend for el >= 9 and fedora >= 35
-    - drop i686
-    - conditional BR on java-1.8.0-openjdk-headless
+    * Mon Nov 28 2022 RH Container Bot <rhcontainerbot@fedoraproject.org> - 1.28.2-1
+    - auto bump to v1.28.2
 
-    * Sun Jan 08 2023 Than Ngo <than@redhat.com> - 108.0.5359.124-4
-    - vaapi support for wayland
+    * Fri Oct 28 2022 Troy Dawson <tdawson@fedoraproject.org> - 1.28.0-7
+    - Add ExclusiveArch
 
-    * Wed Jan 04 2023 Than Ngo <than@redhat.com> - 108.0.5359.124-3
-    - build with system ffmpeg-free and system libaom
-    - fix widewine extension issue
-    - vaapi, disable UseChromeOSDirectVideoDecoder
-    - workaround for linking issue in clang <= 14
+    * Tue Oct 25 2022 Lokesh Mandvekar <lsm5@fedoraproject.org> - 1.28.0-6
+    - rebuild
 
-    * Sun Jan 01 2023 Tom Callaway <spot@fedoraproject.org> - 108.0.5359.124-2
-    - turn headless back on (chrome-remote-desktop will stay off, probably forever)
+  chromium 109.0.5414.74-1.fc37.x86_64 -> 109.0.5414.119-1.fc37.x86_64
+  chromium-common 109.0.5414.74-1.fc37.x86_64 -> 109.0.5414.119-1.fc37.x86_64
+    * Wed Jan 25 2023 Than Ngo <than@redhat.com> - 109.0.5414.119-1
+    - update to 109.0.5414.119
 
-    * Wed Dec 28 2022 Than Ngo <than@redhat.com> - 108.0.5359.124-1
-    - update to 108.0.5359.124
-    - switch to clang
+    * Sun Jan 22 2023 Than Ngo <than@redhat.com> - 109.0.5414.74-4
+    - clean up
 
-  container-selinux 2:2.195.1-1.fc37.noarch -> 2:2.198.0-1.fc37.noarch
-    * Fri Jan 06 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> 2:2.198.0-1
+    * Wed Jan 18 2023 Fedora Release Engineering <releng@fedoraproject.org> - 109.0.5414.74-3
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
+
+    * Sun Jan 15 2023 Than Ngo <than@redhat.com> - 109.0.5414.74-2
+    - conditionalize system_build_flags
+    - cleaned up gn defines
+    - add BR on python3-importlib-metadata
+    - set correct toolchain gcc|clang
+    - fix FTBFS with gcc13
+
+  cifs-utils 6.15-2.fc37.x86_64 -> 7.0-1.fc37.x86_64
+  cifs-utils-info 6.15-2.fc37.x86_64 -> 7.0-1.fc37.x86_64
+    * Wed Feb 01 2023 Pavel Filipenský <pfilipen@redhat.com> - 7.0-1
+    - Upstream release 7.0
+
+  container-selinux 2:2.198.0-1.fc37.noarch -> 2:2.199.0-1.fc37.noarch
+    * Tue Jan 31 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> - 2:2.199.0-1
+    - bump to v2.199.0
+
+    * Fri Jan 06 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> - 2:2.198.0-1
     - bump to v2.198.0
 
-    * Wed Jan 04 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> 2:2.197.0-1
-    - bump to v2.197.0
+  containers-common 4:1-76.fc37.noarch -> 4:1-78.fc37.noarch
+  containers-common-extra 4:1-76.fc37.noarch -> 4:1-78.fc37.noarch
+    * Tue Jan 31 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> - 4:1-78
+    - adjust qemu-user-static dependencies in containers-common-extra
 
-  distribution-gpg-keys 1.80-1.fc37.noarch -> 1.81-1.fc37.noarch
-    * Fri Jan 06 2023 Miroslav Suchý <msuchy@redhat.com> 1.81-1
+    * Thu Jan 26 2023 Daniel J Walsh <dwalsh@redhat.com> - 4:1-71
+    - local build
+
+  dbus-broker 32-1.fc37.x86_64 -> 33-1.fc37.x86_64
+    * Mon Feb 06 2023 David Rheinsberg <david@readahead.eu> - 33-1
+    - Update to upstream v33.
+
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 32-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
+
+  distribution-gpg-keys 1.81-1.fc37.noarch -> 1.82-1.fc37.noarch
+    * Mon Jan 30 2023 Miroslav Suchý <msuchy@redhat.com> 1.82-1
+    - move symlink of fedora-rawhide to fedora-39
+    - add openEuler new key
     - update copr keys
-    - Add remi 2023 key
-    - add TeamViewer key
+    - add fedora 40 gpg key
 
-  efivar-libs 38-5.fc37.x86_64 -> 38-6.fc37.x86_64
-    * Tue Jan 10 2023 Robbie Harwood <rharwood@redhat.com> - 38-6
-    - Fix inheritance of buildflags
+  evolution-data-server 3.46.3-1.fc37.x86_64 -> 3.46.3-2.fc37.x86_64
+  evolution-data-server-langpacks 3.46.3-1.fc37.noarch -> 3.46.3-2.fc37.noarch
+    * Wed Jan 25 2023 Milan Crha <mcrha@redhat.com> - 3.46.3-2
+    - Correct libical-glib version requirement
 
-  emoji-picker 2.19.12-1.fc37.noarch -> 2.19.13-2.fc37.noarch
-    * Sun Jan 08 2023 Mike FABIAN <mfabian@redhat.com> - 2.19.13-2
-    - Update tarball to version with corrected changelog upstream
+  exiv2 0.27.5-3.fc37.x86_64 -> 0.27.6-4.fc37.x86_64
+  exiv2-libs 0.27.5-3.fc37.x86_64 -> 0.27.6-4.fc37.x86_64
+    * Tue Jan 31 2023 Jan Grulich <jgrulich@redhat.com> - 0.27.6-1
+    - 0.27.6
+    - migrated to SPDX license
 
-    * Fri Dec 30 2022 Mike FABIAN <mfabian@redhat.com> - 2.19.13-1
-    - Update to 2.19.13
-    - Catch exception when user database is locked during shutdown
-      (Resolves: https://bugzilla.redhat.com/show_bug.cgi?id=215144)
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.27.5-4
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  firefox 108.0.1-3.fc37.x86_64 -> 109.0-1.fc37.x86_64
-    * Mon Jan 16 2023 Martin Stransky <stransky@redhat.com>- 109.0-1
-    - Update to 109.0
+  fedora-gpg-keys 37-1.noarch -> 37-2.noarch
+  fedora-repos 37-1.noarch -> 37-2.noarch
+  fedora-repos-archive 37-1.noarch -> 37-2.noarch
+  fedora-repos-modular 37-1.noarch -> 37-2.noarch
+  fedora-repos-ostree 37-1.noarch -> 37-2.noarch
+    * Sun Jan 29 2023 Tomas Hrcka <thrcka@redhat.com> - 37-2
+    - Adding F40 key
 
-    * Thu Jan 12 2023 Jan Horak <jhorak@redhat.com> - 108.0.2-1
-    - Update to 108.0.2
+  firefox 109.0-4.fc37.x86_64 -> 109.0.1-1.fc37.x86_64
+    * Wed Feb 01 2023 Martin Stransky <stransky@redhat.com>- 109.0.1-1
+    - Updated to 109.0.1
+    - Added fix for rhbz#2147344 / mzbz#1813500.
 
-    * Mon Jan 09 2023 Kalev Lember <klember@redhat.com> - 108.0.1-4
-    - Drop conditionals for F35
+  fwupd-efi 1.3-1.fc37.x86_64 -> 1.4-1.fc37.x86_64
+    * Fri Jan 27 2023 Richard Hughes <richard@hughsie.com> - 1.4-1
+    - New upstream release
 
-  flatpak 1.14.1-1.fc37.x86_64 -> 1.14.1-2.fc37.x86_64
-  flatpak-libs 1.14.1-1.fc37.x86_64 -> 1.14.1-2.fc37.x86_64
-  flatpak-selinux 1.14.1-1.fc37.noarch -> 1.14.1-2.fc37.noarch
-  flatpak-session-helper 1.14.1-1.fc37.x86_64 -> 1.14.1-2.fc37.x86_64
-    * Fri Jan 06 2023 David King <amigadave@amigadave.com> - 1.14.1-2
-    - Require fusermount (#2158474)
+    * Thu Jul 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.3-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
-  git-core 2.39.0-1.fc37.x86_64 -> 2.39.1-1.fc37.x86_64
-  git-core-doc 2.39.0-1.fc37.noarch -> 2.39.1-1.fc37.noarch
-    * Tue Jan 17 2023 Todd Zullinger <tmz@pobox.com> - 2.39.1-1
-    - update to 2.39.1 (CVE-2022-41903, CVE-2022-23521)
+    * Thu Apr 14 2022 Richard Hughes <richard@hughsie.com> - 1.3-1
+    - New package version
 
-  gjs 1.74.1-3.fc37.x86_64 -> 1.74.1-5.fc37.x86_64
-    * Mon Jan 16 2023 Frantisek Zatloukal <fzatlouk@redhat.com> - 1.74.1-5
-    - Pull in mesa-dri-drivers and dbus-x11 to fix the testsuite
+  gnome-shell 43.2-1.fc37.x86_64 -> 43.2-2.fc37.x86_64
+    * Wed Feb 01 2023 Jonas Ådahl <jadahl@redhat.com> - 43.2-2
+    - Backport patches on the gnome-43 branch
 
-    * Mon Jan 16 2023 Frantisek Zatloukal <fzatlouk@redhat.com> - 1.74.1-4
-    - Rebuild against mozjs102-102.7.0-1
+  hwdata 0.366-1.fc37.noarch -> 0.367-1.fc37.noarch
+    * Thu Feb 02 2023 Vitezslav Crhonek <vcrhonek@redhat.com> - 0.367-1
+    - Update pci, usb and vendor ids
 
-  glibc 2.36-8.fc37.x86_64 -> 2.36-9.fc37.x86_64
-  glibc-all-langpacks 2.36-8.fc37.x86_64 -> 2.36-9.fc37.x86_64
-  glibc-common 2.36-8.fc37.x86_64 -> 2.36-9.fc37.x86_64
-  glibc-gconv-extra 2.36-8.fc37.x86_64 -> 2.36-9.fc37.x86_64
-    * Tue Jan 10 2023 Carlos O'Donell <carlos@redhat.com> - 2.36-9
-    - Auto-sync with upstream branch release/2.36/master,
-      commit e05036b194559cbfcdfcfb1b920d37b939e3e35c:
-    - time: Set daylight to 1 for matching DST/offset change (bug 29951)
-    - elf/tst-tlsopt-powerpc fails when compiled with -mcpu=power10 (BZ# 29776)
-    - x86: Fix -Os build (BZ #29576)
-    - sunrpc: Suppress GCC -Os warning on user2netname
-    - locale: prevent maybe-uninitialized errors with -Os [BZ #19444]
-    - time: Use 64 bit time on tzfile
-    - nscd: Use 64 bit time_t on libc nscd routines (BZ# 29402)
-    - nis: Build libnsl with 64 bit time_t
-    - Apply asm redirections in syslog.h before first use [BZ #27087]
-    - x86: Fix wcsnlen-avx2 page cross length comparison [BZ #29591]
-    - elf: Fix rtld-audit trampoline for aarch64
+  javascriptcoregtk4.1 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
+  javascriptcoregtk5.0 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
+    * Thu Feb 02 2023 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.4-1
+    - Update to 2.38.4
 
-  gnome-software 43.2-1.fc37.x86_64 -> 43.3-1.fc37.x86_64
-  gnome-software-rpm-ostree 43.2-1.fc37.x86_64 -> 43.3-1.fc37.x86_64
-    * Mon Jan 09 2023 Milan Crha <mcrha@redhat.com> - 43.3-1
-    - Update to 43.3
+    * Fri Dec 23 2022 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.3-2
+    - Revert "Fix javascriptcore5 Requires in webkitgtk6.0"
 
-  grub2-common 1:2.06-72.fc37.noarch -> 1:2.06-75.fc37.noarch
-  grub2-efi-ia32 1:2.06-72.fc37.x86_64 -> 1:2.06-75.fc37.x86_64
-  grub2-efi-x64 1:2.06-72.fc37.x86_64 -> 1:2.06-75.fc37.x86_64
-  grub2-pc 1:2.06-72.fc37.x86_64 -> 1:2.06-75.fc37.x86_64
-  grub2-pc-modules 1:2.06-72.fc37.noarch -> 1:2.06-75.fc37.noarch
-  grub2-tools 1:2.06-72.fc37.x86_64 -> 1:2.06-75.fc37.x86_64
-  grub2-tools-minimal 1:2.06-72.fc37.x86_64 -> 1:2.06-75.fc37.x86_64
-    * Wed Jan 11 2023 Robbie Harwood <rharwood@redhat.com> - 2.06-75
-    - Pull allocator improvements from upstream
+  kernel 6.1.8-200.fc37.x86_64 -> 6.1.9-200.fc37.x86_64
+  kernel-core 6.1.8-200.fc37.x86_64 -> 6.1.9-200.fc37.x86_64
+  kernel-modules 6.1.8-200.fc37.x86_64 -> 6.1.9-200.fc37.x86_64
+  kernel-modules-extra 6.1.8-200.fc37.x86_64 -> 6.1.9-200.fc37.x86_64
+    * Wed Feb 01 2023 Augusto Caringi <acaringi@redhat.com> [6.1.9-0]
+    - Add BugsFixed file with bz entries to be included in updates. (Justin M. Forbes)
+    - x86/mm: Randomize per-cpu entry area (Peter Zijlstra)
+    - Update self-test data to not expect debugbuildsenabled 0 (Justin M. Forbes)
+    - Turn off forced debug builds (Justin M. Forbes)
+    - Turn on debug builds for aarch64 Fedora (Justin M. Forbes)
+    - Linux v6.1.9
 
-    * Wed Jan 11 2023 Robbie Harwood <rharwood@redhat.com> - 2.06-74
-    - Apply more hardening to host binaries
+  libavcodec-free 5.1.2-1.fc37.x86_64 -> 5.1.2-6.fc37.x86_64
+  libavformat-free 5.1.2-1.fc37.x86_64 -> 5.1.2-6.fc37.x86_64
+  libavutil-free 5.1.2-1.fc37.x86_64 -> 5.1.2-6.fc37.x86_64
+    * Mon Jan 30 2023 Neal Gompa <ngompa@fedoraproject.org> - 5.1.2-6
+    - Enable more approved codecs
 
-    * Tue Jan 10 2023 Robbie Harwood <rharwood@redhat.com> - 2.06-73
-    - Allow internal grub allocations over 4GB
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 5.1.2-5
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  gst-editing-services 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-    * Wed Jan 11 2023 Wim Taymans <wtaymans@redhat.com> - 1.20.5-1
-    - Update to 1.20.5
+    * Sun Jan 15 2023 Yaakov Selkowitz <yselkowi@redhat.com> - 5.1.2-4
+    - Properly enable libzvbi_teletext decoder
 
-  gstreamer1 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-    * Wed Jan 11 2023 Wim Taymans <wtaymans@redhat.com> - 1.20.5-1
-    - Update to 1.20.5
+    * Fri Dec 23 2022 Sandro Mani <manisandro@gmail.com> - 5.1.2-3
+    - Rebuild (tesseract)
 
-  gstreamer1-plugins-bad-free 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-    * Wed Jan 11 2023 Wim Taymans <wtaymans@redhat.com> - 1.20.5-1
-    - Update to 1.20.5
+    * Wed Nov 09 2022 Neal Gompa <ngompa@fedoraproject.org> - 5.1.2-2
+    - Unconditionally enable Vulkan
 
-  gstreamer1-plugins-base 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-    * Wed Jan 11 2023 Wim Taymans <wtaymans@redhat.com> - 1.20.5-1
-    - Update to 1.20.5
+  libffi 3.4.2-9.fc37.x86_64 -> 3.4.4-1.fc37.x86_64
+    * Fri Feb 03 2023 Carlos O'Donell <carlos@redhat.com> - 3.4.4-1
+    - Rebase to libffi 3.4.4.
 
-  gstreamer1-plugins-good 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-  gstreamer1-plugins-good-qt 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-    * Wed Jan 11 2023 Wim Taymans <wtaymans@redhat.com> - 1.20.5-1
-    - Update to 1.20.5
+  libgusb 0.4.3-1.fc37.x86_64 -> 0.4.4-1.fc37.x86_64
+    * Mon Jan 30 2023 Richard Hughes <richard@hughsie.com> - 0.4.4-1
+    - New upstream release
 
-  gstreamer1-plugins-ugly-free 1.20.4-1.fc37.x86_64 -> 1.20.5-1.fc37.x86_64
-    * Wed Jan 11 2023 Wim Taymans <wtaymans@redhat.com> - 1.20.5-1
-    - Update to 1.20.5
+    * Tue Dec 20 2022 Richard Hughes <richard@hughsie.com> - 0.4.3-1
+    - New upstream version
 
-  gtk4 4.8.2-2.fc37.x86_64 -> 4.8.3-1.fc37.x86_64
-    * Sun Jan 08 2023 David King <amigadave@amigadave.com> - 4.8.3-1
-    - Update to 4.8.3 (#2158999)
+  libhandy 1.8.0-1.fc37.x86_64 -> 1.8.1-1.fc37.x86_64
+    * Wed Feb 01 2023 David King <amigadave@amigadave.com> - 1.8.1-1
+    - Update to 1.8.1 (#2166285)
 
-  gvfs 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-afc 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-afp 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-archive 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-client 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-fuse 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-goa 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-gphoto2 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-mtp 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-  gvfs-smb 1.50.2-2.fc37.x86_64 -> 1.50.3-1.fc37.x86_64
-    * Sun Jan 08 2023 David King <amigadave@amigadave.com> - 1.50.3-1
-    - Update to 1.50.3
+  libphonenumber 8.12.57-3.fc37.x86_64 -> 8.12.57-6.fc37.x86_64
+    * Mon Jan 30 2023 Benjamin A. Beasley <code@musicinmybrain.net> - 8.12.57-6
+    - Correctly build as C++17 instead of C++11 for gtest-1.13.0, which needs C++14
 
-  ibus 1.5.27-4.fc37.x86_64 -> 1.5.27-5.fc37.x86_64
-  ibus-gtk3 1.5.27-4.fc37.x86_64 -> 1.5.27-5.fc37.x86_64
-  ibus-gtk4 1.5.27-4.fc37.x86_64 -> 1.5.27-5.fc37.x86_64
-  ibus-libs 1.5.27-4.fc37.x86_64 -> 1.5.27-5.fc37.x86_64
-  ibus-setup 1.5.27-4.fc37.noarch -> 1.5.27-5.fc37.noarch
-    * Thu Jan 12 2023 Takao Fujiwara <tfujiwar@redhat.com> - 1.5.27-5
-    - Refactor surrounding text warning
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 8.12.57-5
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  ibus-typing-booster 2.19.12-1.fc37.noarch -> 2.19.13-2.fc37.noarch
-    * Sun Jan 08 2023 Mike FABIAN <mfabian@redhat.com> - 2.19.13-2
-    - Update tarball to version with corrected changelog upstream
+    * Sat Dec 31 2022 Pete Walter <pwalter@fedoraproject.org> - 8.12.57-4
+    - Rebuild for ICU 72
 
-    * Fri Dec 30 2022 Mike FABIAN <mfabian@redhat.com> - 2.19.13-1
-    - Update to 2.19.13
-    - Catch exception when user database is locked during shutdown
-      (Resolves: https://bugzilla.redhat.com/show_bug.cgi?id=215144)
+  libpwquality 1.4.5-1.fc37.x86_64 -> 1.4.5-3.fc37.x86_64
+    * Wed Feb 01 2023 Adam Williamson <awilliam@redhat.com> - 1.4.5-3
+    - Strengthen cracklib-dicts dependency to Recommends (#2158891)
 
-  iptables-libs 1.8.8-3.fc37.x86_64 -> 1.8.8-4.fc37.x86_64
-  iptables-nft 1.8.8-3.fc37.x86_64 -> 1.8.8-4.fc37.x86_64
-    * Thu Jan 12 2023 Phil Sutter <psutter@redhat.com> - 1.8.8-4
-    - Make iptables-xml a relative symlink
-    - Add fixes from upstream
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.5-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  kernel 6.0.17-300.fc37.x86_64 -> 6.1.6-200.fc37.x86_64
-  kernel-core 6.0.17-300.fc37.x86_64 -> 6.1.6-200.fc37.x86_64
-  kernel-modules 6.0.17-300.fc37.x86_64 -> 6.1.6-200.fc37.x86_64
-  kernel-modules-extra 6.0.17-300.fc37.x86_64 -> 6.1.6-200.fc37.x86_64
-    * Sat Jan 14 2023 Justin M. Forbes <jforbes@fedoraproject.org> [6.1.6-0]
-    - Linux v6.1.6
+  libswresample-free 5.1.2-1.fc37.x86_64 -> 5.1.2-6.fc37.x86_64
+    * Mon Jan 30 2023 Neal Gompa <ngompa@fedoraproject.org> - 5.1.2-6
+    - Enable more approved codecs
 
-    * Thu Jan 12 2023 Justin M. Forbes <jforbes@fedoraproject.org> [6.1.5-0]
-    - KVM: VMX: Execute IBPB on emulated VM-exit when guest has IBRS (Jim Mattson)
-    - Update module filters for nvmem_u-boot-env (Justin M. Forbes)
-    - drivers/firmware: skip simpledrm if nvidia-drm.modeset=1 is set (Javier Martinez Canillas)
-    - fedora: Updates for 6.1 merge (Peter Robinson)
-    - Linux v6.1.5
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 5.1.2-5
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-    * Sat Jan 07 2023 Justin M. Forbes <jforbes@fedoraproject.org> [6.1.4-0]
-    - brcmfmac: Prefer DT board type over DMI board type (Ivan T. Ivanov)
-    - Remove the revert patch from F36, as a new pahole is being pushed to stable making it unnecessary (Justin M. Forbes)
-    - Linux v6.1.4
+    * Sun Jan 15 2023 Yaakov Selkowitz <yselkowi@redhat.com> - 5.1.2-4
+    - Properly enable libzvbi_teletext decoder
 
-    * Wed Jan 04 2023 Justin M. Forbes <jforbes@fedoraproject.org> [6.1.3-0]
-    - Linux v6.1.3
+    * Fri Dec 23 2022 Sandro Mani <manisandro@gmail.com> - 5.1.2-3
+    - Rebuild (tesseract)
 
-  kf5-filesystem 5.101.0-1.fc37.x86_64 -> 5.102.0-1.fc37.x86_64
-    * Sat Jan 14 2023 Marc Deop <marcdeop@fedoraproject.org> - 5.102.0-1
-    - 5.102.0
+    * Wed Nov 09 2022 Neal Gompa <ngompa@fedoraproject.org> - 5.1.2-2
+    - Unconditionally enable Vulkan
 
-  libXpm 3.5.13-8.fc37.x86_64 -> 3.5.14-1.fc37.x86_64
-    * Wed Jan 11 2023 Peter Hutterer <peter.hutterer@redhat.com> - 3.5.14-1
-    - libXpm 3.5.14
+  libwacom 2.4.0-1.fc37.x86_64 -> 2.6.0-1.fc37.x86_64
+  libwacom-data 2.4.0-1.fc37.noarch -> 2.6.0-1.fc37.noarch
+    * Mon Jan 23 2023 Peter Hutterer <peter.hutterer@redhat.com> - 2.6.0-1
+    - libwacom 2.6.0
 
-  libinput 1.22.0-2.fc37.x86_64 -> 1.22.1-1.fc37.x86_64
-    * Mon Jan 16 2023 Peter Hutterer <peter.hutterer@redhat.com> - 1.22.1-1
-    - libinput 1.22.1
+    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 2.4.0-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  libqmi 1.30.6-2.fc37.x86_64 -> 1.30.8-1.fc37.x86_64
-  libqmi-utils 1.30.6-2.fc37.x86_64 -> 1.30.8-1.fc37.x86_64
-    * Tue Jan 10 2023 Lubomir Rintel <lkundrak@v3.sk> - 1.30.8-1
-    - Update to 1.30.8
+  mutter 43.2-1.fc37.x86_64 -> 43.2-2.fc37.x86_64
+    * Wed Feb 01 2023 Jonas Ådahl <jadahl@redhat.com> - 43.2-2
+    - Backport patches on the gnome-43 branch
 
-  libsoup3 3.2.2-1.fc37.x86_64 -> 3.2.2-2.fc37.x86_64
-    * Mon Jan 16 2023 Michael Catanzaro <mcatanzaro@redhat.com> - 3.2.2-2
-    - Rebuild against latest nghttp2
+  qgnomeplatform-qt5 0.9.0-6.fc37.x86_64 -> 0.9.0-8.fc37.x86_64
+    * Fri Jan 20 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.0-8
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-    * Thu Nov 03 2022 David King <amigadave@amigadave.com> - 3.2.2-1
+    * Tue Jan 17 2023 Jan Grulich <jgrulich@redhat.com> - 0.9.0-7
+    - Rebuild (qt6)
+
+  selinux-policy 37.18-1.fc37.noarch -> 37.19-1.fc37.noarch
+  selinux-policy-targeted 37.18-1.fc37.noarch -> 37.19-1.fc37.noarch
+    * Fri Feb 03 2023 Zdenek Pytela <zpytela@redhat.com> - 37.19-1
+    - Allow systemd-userdbd the sys_resource capability
+    - Additional support for rpmdb_migrate
+    - Allow nm-cloud-setup dispatcher plugin restart nm services
+    - Dontaudit ftpd the execmem permission
+    - Allow icecast rename its log files
+    - Allow systemd-rfkill the bpf capability
+
+  tpm2-tss 3.2.1-1.fc37.x86_64 -> 3.2.2-1.fc37.x86_64
+    * Wed Feb 01 2023 Peter Robinson <pbrobinson@fedoraproject.org> - 3.2.2-1
     - Update to 3.2.2
 
-  libwebp 1.2.4-2.fc37.x86_64 -> 1.3.0-1.fc37.x86_64
-    * Fri Jan 13 2023 Sandro Mani <manisandro@gmail.com> - 1.3.0-1
-    - Update to 1.3.0
+  vim-data 2:9.0.1221-1.fc37.noarch -> 2:9.0.1262-1.fc37.noarch
+  vim-minimal 2:9.0.1221-1.fc37.x86_64 -> 2:9.0.1262-1.fc37.x86_64
+    * Mon Jan 30 2023 Zdenek Dohnal <zdohnal@redhat.com> - 2:9.0.1262-1
+    - patchlevel 1262
 
-  llvm-libs 15.0.6-1.fc37.x86_64 -> 15.0.7-1.fc37.x86_64
-    * Thu Jan 12 2023 Nikita Popov <npopov@redhat.com> - 15.0.7-1
-    - Update to LLVM 15.0.7
+  virtualbox-guest-additions 7.0.4-1.fc37.x86_64 -> 7.0.6-1.fc37.x86_64
+    * Mon Jan 30 2023 Sérgio Basto <sergio@serjux.com> - 7.0.6-1
+    - Update virtualbox-guest-additions to 7.0.6 (#2161718)
 
-  lz4-libs 1.9.3-5.fc37.x86_64 -> 1.9.4-1.fc37.x86_64
-    * Wed Aug 17 2022 Timothée Ravier <tim@siosm.fr> - 1.9.4-1
-    - Update to 1.9.4 (fedora#2118499)
+    * Sat Jan 21 2023 Fedora Release Engineering <releng@fedoraproject.org> - 7.0.4-2
+    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
-  mesa-dri-drivers 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-filesystem 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-libEGL 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-libGL 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-libgbm 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-libglapi 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-libxatracker 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-va-drivers 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-  mesa-vulkan-drivers 22.3.2-1.fc37.x86_64 -> 22.3.3-1.fc37.x86_64
-    * Wed Jan 11 2023 Pete Walter <pwalter@fedoraproject.org> 22.3.3-1
-    - Update to 22.3.3
+  webkit2gtk4.1 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
+  webkit2gtk5.0 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
+    * Thu Feb 02 2023 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.4-1
+    - Update to 2.38.4
 
-  mozjs102 102.6.0-1.fc37.x86_64 -> 102.7.0-1.fc37.x86_64
-    * Mon Jan 16 2023 Frantisek Zatloukal <fzatlouk@redhat.com> - 102.7.0-1
-    - mozjs102-102.7.0 (fixes RHBZ#2161250)
-
-    * Sat Dec 31 2022 Pete Walter <pwalter@fedoraproject.org> - 102.6.0-2
-    - Rebuild for ICU 72
-
-  mpg123-libs 1.31.1-1.fc37.x86_64 -> 1.31.2-1.fc37.x86_64
-    * Sun Jan 15 2023 Phil Wyett <philip.wyett@kathenas.org> - 1.31.2-1
-    - Update to 1.31.2
-
-    * Sun Nov 13 2022 Mamoru TASAKA <mtasaka@fedoraproject.org> - 1.31.1-3
-    - Revert the previous change for now
-
-    * Fri Nov 11 2022 Phil Wyett <philip.wyett@kathenas.org> - 1.31.1-2
-    - Use --disable-largefile and allow co-installable arch devel packages
-
-  nautilus 43.1-1.fc37.x86_64 -> 43.2-1.fc37.x86_64
-  nautilus-extensions 43.1-1.fc37.x86_64 -> 43.2-1.fc37.x86_64
-    * Sun Jan 08 2023 David King <amigadave@amigadave.com> - 43.2-1
-    - Update to 43.2
-
-  nspr 4.35.0-2.fc37.x86_64 -> 4.35.0-3.fc37.x86_64
-  nss 3.85.0-1.fc37.x86_64 -> 3.87.0-1.fc37.x86_64
-  nss-softokn 3.85.0-1.fc37.x86_64 -> 3.87.0-1.fc37.x86_64
-  nss-softokn-freebl 3.85.0-1.fc37.x86_64 -> 3.87.0-1.fc37.x86_64
-  nss-sysinit 3.85.0-1.fc37.x86_64 -> 3.87.0-1.fc37.x86_64
-  nss-util 3.85.0-1.fc37.x86_64 -> 3.87.0-1.fc37.x86_64
-    * Tue Jan 10 2023 Frantisek Krenzelok <krenzelok.frantisek@gmail.com> - 3.87.0-1
-    - Update NSS to 3.87 & remove unused patches
-
-  orca 43.0-1.fc37.noarch -> 43.1-1.fc37.noarch
-    * Thu Jan 05 2023 David King <amigadave@amigadave.com> - 43.1-1
-    - Update to 43.1
-
-  pipewire 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-  pipewire-alsa 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-  pipewire-gstreamer 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-  pipewire-jack-audio-connection-kit 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-  pipewire-libs 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-  pipewire-pulseaudio 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-  pipewire-utils 0.3.63-1.fc37.x86_64 -> 0.3.64-1.fc37.x86_64
-    * Thu Jan 12 2023 Wim Taymans <wtaymans@redhat.com> - 0.3.64-1
-    - Update version to 0.3.64
-
-  poppler 22.08.0-2.fc37.x86_64 -> 22.08.0-3.fc37.x86_64
-  poppler-cpp 22.08.0-2.fc37.x86_64 -> 22.08.0-3.fc37.x86_64
-  poppler-glib 22.08.0-2.fc37.x86_64 -> 22.08.0-3.fc37.x86_64
-  poppler-utils 22.08.0-2.fc37.x86_64 -> 22.08.0-3.fc37.x86_64
-    * Wed Jan 11 2023 Marek Kasik <mkasik@redhat.com> - 22.08.0-3
-    - Update font after restore in Cairo
-    - Provide Unicode marker when ensuring fonts
-
-  python-unversioned-command 3.11.1-1.fc37.noarch -> 3.11.1-3.fc37.noarch
-  python3 3.11.1-1.fc37.x86_64 -> 3.11.1-3.fc37.x86_64
-  python3-libs 3.11.1-1.fc37.x86_64 -> 3.11.1-3.fc37.x86_64
-    * Fri Jan 06 2023 Miro Hrončok <mhroncok@redhat.com> - 3.11.1-3
-    - Fix `asyncio` subprocess losing `stderr` and `stdout` output
-    - Remove any deprecation warnings in asyncio.get_event_loop()
-
-  qgnomeplatform-qt5 0.9.0-5.fc37.x86_64 -> 0.9.0-6.fc37.x86_64
-    * Fri Jan 06 2023 Jan Grulich <jgrulich@redhat.com> - 0.9.0-6
-    - Rebuild (qt5)
-
-  qt5-qtbase 5.15.7-1.fc37.x86_64 -> 5.15.8-2.fc37.x86_64
-  qt5-qtbase-common 5.15.7-1.fc37.noarch -> 5.15.8-2.fc37.noarch
-  qt5-qtbase-gui 5.15.7-1.fc37.x86_64 -> 5.15.8-2.fc37.x86_64
-    * Thu Jan 05 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.8-2
-    - Correctly install qtsan header file
-
-    * Thu Jan 05 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.8-1
-    - 5.15.8
-
-    * Sat Dec 31 2022 Pete Walter <pwalter@fedoraproject.org> - 5.15.7-2
-    - Rebuild for ICU 72
-
-  qt5-qtdeclarative 5.15.7-1.fc37.x86_64 -> 5.15.8-1.fc37.x86_64
-    * Thu Jan 05 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.8-1
-    - 5.15.8
-
-  qt5-qtwayland 5.15.7-1.fc37.x86_64 -> 5.15.8-1.fc37.x86_64
-    * Thu Jan 05 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.8-1
-    - 5.15.8
-
-  qt5-qtx11extras 5.15.7-1.fc37.x86_64 -> 5.15.8-1.fc37.x86_64
-    * Thu Jan 05 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.8-1
-    - 5.15.8
-
-  qt5-qtxmlpatterns 5.15.7-1.fc37.x86_64 -> 5.15.8-1.fc37.x86_64
-    * Thu Jan 05 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.8-1
-    - 5.15.8
-
-  rav1e-libs 0.5.1-5.fc37.x86_64 -> 0.5.1-6.fc37.x86_64
-    * Fri Jan 13 2023 Fabio Valentini <decathorpe@gmail.com> 0.5.1-6
-    - Backport upstream patch to fix UB / crash in test code
-
-  selinux-policy 37.17-1.fc37.noarch -> 37.18-1.fc37.noarch
-  selinux-policy-targeted 37.17-1.fc37.noarch -> 37.18-1.fc37.noarch
-    * Mon Jan 16 2023 Zdenek Pytela <zpytela@redhat.com> - 37.18-1
-    - Allow apcupsd dbus chat with systemd-logind
-    - Allow nut_domain manage also files and sock_files in /var/run
-    - Label /usr/lib/rpm/rpmdb_migrate with rpmdb_exec_t
-    - Allow tlp read generic SSL certificates
-    - Allow systemd-resolved watch tmpfs directories
-    - Revert "Allow systemd-resolved watch tmpfs directories"
-    - Allow stalld to read /sys/kernel/security/lockdown file
-
-  tree 2.0.2-2.fc37.x86_64 -> 2.1.0-1.fc37.x86_64
-    * Wed Dec 28 2022 Kamil Dudka <kdudka@redhat.com> - 2.1.0-1
-    - update to the latest upstream release
-
-    * Wed Sep 07 2022 Kamil Dudka <kdudka@redhat.com> - 2.0.4-1
-    - update to the latest upstream release
-
-  unbound-anchor 1.17.0-1.fc37.x86_64 -> 1.17.1-1.fc37.x86_64
-  unbound-libs 1.17.0-1.fc37.x86_64 -> 1.17.1-1.fc37.x86_64
-    * Fri Jan 13 2023 Paul Wouters <paul.wouters@aiven.io - 1.17.1-1
-    - Resolved rhbz#2160397 unbound-1.17.1 is available (bugfix release)
-    - Add support for building with redis
-
-    * Thu Dec 01 2022 Petr Menšík <pemensik@redhat.com> - 1.17.0-2
-    - Move unbound user creation to libs (#2149036)
-    - Use systemd-sysusers for user creation (#2105416)
-    - Keep original DNSSEC root key as config (#2132103)
-
-  usbutils 014-3.fc37.x86_64 -> 015-1.fc37.x86_64
-    * Fri Jan 13 2023 Jan Macku <jamacku@redhat.com> - 015-1
-    - Update to 015
-
-  vim-data 2:9.0.1054-1.fc37.noarch -> 2:9.0.1182-1.fc37.noarch
-  vim-minimal 2:9.0.1054-1.fc37.x86_64 -> 2:9.0.1182-1.fc37.x86_64
-    * Thu Jan 12 2023 Zdenek Dohnal <zdohnal@redhat.com> - 2:9.0.1182-1
-    - patchlevel 1182
-
-    * Mon Jan 09 2023 Zdenek Dohnal <zdohnal@redhat.com> - 2:9.0.1160-1
-    - patchlevel 1160
-
-    * Mon Jan 09 2023 Zdenek Dohnal <zdohnal@redhat.com> - 2:9.0.1054-2
-    - FTBFS with new FORTIFY_SOURCE=3 - remove it since Vim wants level 1
-
-  xorg-x11-server-Xorg 1.20.14-12.fc37.x86_64 -> 1.20.14-15.fc37.x86_64
-  xorg-x11-server-common 1.20.14-12.fc37.x86_64 -> 1.20.14-15.fc37.x86_64
-    * Fri Jan 13 2023 Leif Liddy <leifliddy@fedoraproject.org> 1.20.14-15
-    - Xorg server does not correctly select the DCP for the display
-      without a quirk on Apple silicon machines (#2152414)
-
-    * Fri Jan 13 2023 Peter Hutterer <peter.hutterer@redhat.com> - 1.20.14-14
-    - Disallow byte-swapped clients (#2159489)
-
-    * Wed Jan 11 2023 Olivier Fourdan <ofourdan@redhat.com> - 1.20.14-13
-    - Rename boolean config value field from bool to boolean to fix drivers
-      build failures due to a conflict with C++ and stdbool.h
+    * Fri Dec 23 2022 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.3-2
+    - Revert "Fix javascriptcore5 Requires in webkitgtk6.0"
 
 Added:
-  codec2-1.0.5-1.fc37.x86_64
-  ilbc-3.0.4-3.fc37.x86_64
-  intel-mediasdk-22.5.4-1.fc37.x86_64
-  libavcodec-free-5.1.2-1.fc37.x86_64
-  libavformat-free-5.1.2-1.fc37.x86_64
-  libavutil-free-5.1.2-1.fc37.x86_64
-  libchromaprint-1.5.1-5.fc37.x86_64
-  libmodplug-1:0.8.9.0-15.fc37.x86_64
-  libopenmpt-0.6.6-1.fc37.x86_64
-  libsodium-1.0.18-10.fc37.x86_64
-  libswresample-free-5.1.2-1.fc37.x86_64
-  libvdpau-1.5-2.fc37.x86_64
-  lpcnetfreedv-0.2-12.fc37.x86_64
-  ocl-icd-2.3.1-2.fc37.x86_64
-  openpgm-5.2.122-29.fc37.x86_64
-  python3-langdetect-1.0.9-2.fc37.noarch
-  srt-libs-1.5.1-1.fc37.x86_64
-  vapoursynth-libs-58-3.fc37.x86_64
-  zeromq-4.3.4-4.fc37.x86_64
-  zimg-3.0.3-2.fc37.x86_64
+  cracklib-dicts-2.9.7-30.fc37.x86_64
+  opencore-amr-0.1.6-3.fc37.x86_64
+  vo-amrwbenc-0.1.3-18.fc37.x86_64
+  xvidcore-1.3.7-9.fc37.x86_64
+  zvbi-0.2.35-17.fc37.x86_64
 
-Changes since last rpm-ostree update:
---- /var/home/petersen/.cache/rpmostree-updates/previous-changelog	2023-01-20 13:39:19.301138183 +0800
-+++ /var/home/petersen/.cache/rpmostree-updates/latest-changelog	2023-01-21 16:56:24.594407846 +0800
+Diff with last rpm-ostree update:
+--- /var/home/petersen/.cache/rpmostree-updates/previous-changelog	2023-02-08 12:32:23.757612662 +0800
++++ /var/home/petersen/.cache/rpmostree-updates/latest-changelog	2023-02-10 00:30:36.948768425 +0800
 @@ -2 +2 @@
--ostree diff commit to:   pending deployment (fa853a038585cdc8bf2ae7535cf0c1ac6f1ed60b6d39425f8161da24ec777408)
-+ostree diff commit to:   pending deployment (6d2f91ba61bf5551eddb4ff94fa438af6e64fa6516ccb0495c1726331a555749)
-@@ -24,2 +24,13 @@
--  chromium 107.0.5304.121-1.fc37.x86_64 -> 108.0.5359.124-3.fc37.x86_64
--  chromium-common 107.0.5304.121-1.fc37.x86_64 -> 108.0.5359.124-3.fc37.x86_64
-+  chromium 107.0.5304.121-1.fc37.x86_64 -> 109.0.5414.74-1.fc37.x86_64
-+  chromium-common 107.0.5304.121-1.fc37.x86_64 -> 109.0.5414.74-1.fc37.x86_64
-+    * Wed Jan 11 2023 Than Ngo <than@redhat.com> - 109.0.5414.74-1
-+    - update to 109.0.5414.74
+-ostree diff commit to:   pending deployment (85e1c6912d310c66b2a451787bc6ba8de261fac8fd78fce9dba3012aab39bb97)
++ostree diff commit to:   pending deployment (161f7a880297f0b9fafa0a4871966d0b0ac00165b912aeb8fec588e14abdd226)
+@@ -10,0 +11,16 @@
++  buildah 1.28.0-6.fc37.x86_64 -> 1.29.0-1.fc37.x86_64
++    * Tue Jan 31 2023 Lokesh Mandvekar <lsm5@fedoraproject.org> - 1.29.0-1
++    - bump to v1.29.0
 +
-+    * Tue Jan 10 2023 Than Ngo <than@redhat.com> - 108.0.5359.124-5
-+    - enable qt backend for el >= 9 and fedora >= 35
-+    - drop i686
-+    - conditional BR on java-1.8.0-openjdk-headless
++    * Wed Jan 18 2023 Fedora Release Engineering <releng@fedoraproject.org> - 1.28.2-2
++    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 +
-+    * Sun Jan 08 2023 Than Ngo <than@redhat.com> - 108.0.5359.124-4
-+    - vaapi support for wayland
++    * Mon Nov 28 2022 RH Container Bot <rhcontainerbot@fedoraproject.org> - 1.28.2-1
++    - auto bump to v1.28.2
 +
-@@ -80,0 +92,5 @@
++    * Fri Oct 28 2022 Troy Dawson <tdawson@fedoraproject.org> - 1.28.0-7
++    - Add ExclusiveArch
 +
-+  git-core 2.39.0-1.fc37.x86_64 -> 2.39.1-1.fc37.x86_64
-+  git-core-doc 2.39.0-1.fc37.noarch -> 2.39.1-1.fc37.noarch
-+    * Tue Jan 17 2023 Todd Zullinger <tmz@pobox.com> - 2.39.1-1
-+    - update to 2.39.1 (CVE-2022-41903, CVE-2022-23521)
++    * Tue Oct 25 2022 Lokesh Mandvekar <lsm5@fedoraproject.org> - 1.28.0-6
++    - rebuild
++
+@@ -28,0 +45,5 @@
++  cifs-utils 6.15-2.fc37.x86_64 -> 7.0-1.fc37.x86_64
++  cifs-utils-info 6.15-2.fc37.x86_64 -> 7.0-1.fc37.x86_64
++    * Wed Feb 01 2023 Pavel Filipenský <pfilipen@redhat.com> - 7.0-1
++    - Upstream release 7.0
++
+@@ -43,0 +65,7 @@
++  dbus-broker 32-1.fc37.x86_64 -> 33-1.fc37.x86_64
++    * Mon Feb 06 2023 David Rheinsberg <david@readahead.eu> - 33-1
++    - Update to upstream v33.
++
++    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 32-2
++    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
++
+@@ -55,0 +84,9 @@
++  exiv2 0.27.5-3.fc37.x86_64 -> 0.27.6-4.fc37.x86_64
++  exiv2-libs 0.27.5-3.fc37.x86_64 -> 0.27.6-4.fc37.x86_64
++    * Tue Jan 31 2023 Jan Grulich <jgrulich@redhat.com> - 0.27.6-1
++    - 0.27.6
++    - migrated to SPDX license
++
++    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.27.5-4
++    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
++
+@@ -86,0 +124,8 @@
++  javascriptcoregtk4.1 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
++  javascriptcoregtk5.0 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
++    * Thu Feb 02 2023 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.4-1
++    - Update to 2.38.4
++
++    * Fri Dec 23 2022 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.3-2
++    - Revert "Fix javascriptcore5 Requires in webkitgtk6.0"
++
+@@ -116,0 +162,4 @@
++  libffi 3.4.2-9.fc37.x86_64 -> 3.4.4-1.fc37.x86_64
++    * Fri Feb 03 2023 Carlos O'Donell <carlos@redhat.com> - 3.4.4-1
++    - Rebase to libffi 3.4.4.
++
+@@ -127,0 +177,10 @@
++  libphonenumber 8.12.57-3.fc37.x86_64 -> 8.12.57-6.fc37.x86_64
++    * Mon Jan 30 2023 Benjamin A. Beasley <code@musicinmybrain.net> - 8.12.57-6
++    - Correctly build as C++17 instead of C++11 for gtest-1.13.0, which needs C++14
++
++    * Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 8.12.57-5
++    - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
++
++    * Sat Dec 31 2022 Pete Walter <pwalter@fedoraproject.org> - 8.12.57-4
++    - Rebuild for ICU 72
++
+@@ -179,0 +239,4 @@
++  tpm2-tss 3.2.1-1.fc37.x86_64 -> 3.2.2-1.fc37.x86_64
++    * Wed Feb 01 2023 Peter Robinson <pbrobinson@fedoraproject.org> - 3.2.2-1
++    - Update to 3.2.2
++
+@@ -190,0 +254,8 @@
++
++  webkit2gtk4.1 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
++  webkit2gtk5.0 2.38.3-2.fc37.x86_64 -> 2.38.4-1.fc37.x86_64
++    * Thu Feb 02 2023 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.4-1
++    - Update to 2.38.4
++
++    * Fri Dec 23 2022 Michael Catanzaro <mcatanzaro@redhat.com> - 2.38.3-2
++    - Revert "Fix javascriptcore5 Requires in webkitgtk6.0"
 
 ```
 
