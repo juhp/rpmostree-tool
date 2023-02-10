@@ -5,8 +5,8 @@ module Main (main) where
 import Control.Monad.Extra (unless, void, when, whenJust)
 import Data.List (isPrefixOf, isInfixOf)
 import SimpleCmd
-import System.Directory (createDirectoryIfMissing, doesFileExist, renameFile,
-                         removeFile)
+import System.Directory (createDirectoryIfMissing, doesDirectoryExist,
+                         doesFileExist, removeFile, renameFile)
 import System.Environment.XDG.BaseDir (getUserCacheDir)
 import System.FilePath ((</>))
 import System.IO (BufferMode(..), hSetBuffering, stdout)
@@ -27,8 +27,13 @@ modeArgs Changelog = ["db", "diff", "-c"]
 main :: IO ()
 main = do
   hSetBuffering stdout NoBuffering
+  let sysrootDir = "/sysroot"
+  sysroot <- doesDirectoryExist sysrootDir
+  unless sysroot $
+    error' $ "no" +-+ sysrootDir +-+ "found: not a rpm-ostree system?"
   exists <- doesFileExist rpmostree
-  unless exists $ error' $ rpmostree +-+ ": not found"
+  unless exists $
+    error' $ rpmostree +-+ ": not found"
   cachedir <- getUserCacheDir "rpmostree-updates"
   createDirectoryIfMissing True cachedir
   -- whether latest is a staged deployment
