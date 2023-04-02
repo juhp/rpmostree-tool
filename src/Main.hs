@@ -5,6 +5,7 @@ module Main (main) where
 import Control.Monad.Extra (unless, void, when, whenJust)
 import Data.List (isPrefixOf, isInfixOf)
 import SimpleCmd
+import SimplePrompt
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist,
                          doesFileExist, removeFile, renameFile)
 import System.Environment.XDG.BaseDir (getUserCacheDir)
@@ -42,10 +43,11 @@ main = do
     putStrLn "current latest deployment is staged"
   putStrLn "Preview:"
   changed <- cachedRpmOstree staged cachedir Update
-  when (changed || not staged) $ do
-    prompt "to update"
+  when changed $ do
+    prompt_ "Press Enter to update"
     cmd_ rpmostree ["update"]
-    prompt "for changelog"
+  showChangelog <- yesno (Just changed) "Show changelog"
+  when showChangelog $
     void $ cachedRpmOstree staged cachedir Changelog
 
 cachedRpmOstree :: Bool -> FilePath -> Mode -> IO Bool
@@ -99,8 +101,3 @@ cachedRpmOstree staged cachedir mode = do
     noise :: String -> Bool
     noise cs = "@@ " `isPrefixOf` cs ||
                " 0 content objects fetched; " `isInfixOf` cs
-
-prompt :: String -> IO ()
-prompt txt = do
-  putStr $ "Press Enter" +-+ txt ++ ":"
-  void getLine

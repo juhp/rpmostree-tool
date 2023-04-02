@@ -38,6 +38,7 @@ executable rpmostree-update
                        extra,
                        filepath,
                        simple-cmd,
+                       simple-prompt,
                        xdg-basedir
   default-language:    Haskell2010
   ghc-options:         -Wall
