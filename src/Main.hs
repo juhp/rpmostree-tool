@@ -73,7 +73,7 @@ cachedRpmOstree staged cachedir mode = do
           putStrLn "no new changes"
           return False
           else return True
-      Nothing -> return False
+      Nothing -> not <$> grep_ "No updates available." latest
   where
     cacheFile :: FilePath -> IO (Maybe FilePath)
     cacheFile latestCache = do
