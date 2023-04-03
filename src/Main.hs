@@ -4,13 +4,16 @@ module Main (main) where
 
 import Control.Monad.Extra (unless, void, when, whenJust)
 import Data.List (isPrefixOf, isInfixOf)
-import SimpleCmd
-import SimplePrompt
+import Data.Maybe (isNothing)
+import SimpleCmd (cmd, cmd_, cmdStdErr, error', grep_, pipeBool, (+-+))
+import SimplePrompt (prompt_, yesno)
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist,
                          doesFileExist, removeFile, renameFile)
 import System.Environment.XDG.BaseDir (getUserCacheDir)
+import System.Exit (ExitCode(ExitSuccess))
 import System.FilePath ((</>))
-import System.IO (BufferMode(..), hSetBuffering, stdout)
+import System.IO (BufferMode(..), hSetBuffering, openFile, stdout, IOMode(WriteMode))
+import System.Process (runProcess,waitForProcess)
 
 rpmostree :: String
 rpmostree = "/usr/bin/rpm-ostree"
@@ -42,20 +45,23 @@ main = do
   -- FIXME
   unless staged $
     putStrLn "current latest deployment is live"
-  putStrLn "Preview:"
+  -- putStrLn "Preview:"
   changed <- cachedRpmOstree staged cachedir Update
   when changed $ do
     prompt_ "Press Enter to update"
     cmd_ rpmostree ["update"]
-  showChangelog <- yesno (Just changed) "Show changelog"
-  when showChangelog $
-    void $ cachedRpmOstree staged cachedir Changelog
+  when changed $ do
+    showChangelog <- yesno (Just changed) "Show changelog"
+    when showChangelog $
+      void $ cachedRpmOstree staged cachedir Changelog
 
 cachedRpmOstree :: Bool -> FilePath -> Mode -> IO Bool
 cachedRpmOstree staged cachedir mode = do
   let latest = cachedir </> "latest-" ++ show mode
   mprevious <- cacheFile latest
-  ok <- pipeBool (rpmostree, modeArgs mode) ("tee", [latest])
+  ok <- if isNothing mprevious
+        then pipeBool (rpmostree, modeArgs mode) ("tee", [latest])
+        else cmdToFile (rpmostree, modeArgs mode) latest
   if not ok
     then do
     whenJust mprevious $ \previous ->
@@ -102,3 +108,11 @@ cachedRpmOstree staged cachedir mode = do
     noise :: String -> Bool
     noise cs = "@@ " `isPrefixOf` cs ||
                " 0 content objects fetched; " `isInfixOf` cs
+
+cmdToFile :: (String, [String]) -> FilePath -> IO Bool
+cmdToFile (c,args) file = do
+  h <- openFile file WriteMode
+  p <- runProcess c args Nothing Nothing Nothing (Just h) Nothing
+  ret <- waitForProcess p
+  -- FIXME replace with boolWrapper
+  return $ ret == ExitSuccess
