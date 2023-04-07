@@ -19,6 +19,7 @@ rpmostree :: String
 rpmostree = "/usr/bin/rpm-ostree"
 
 data Mode = Update | Changelog
+  deriving Eq
 
 instance Show Mode where
   show Update = "update"
@@ -70,7 +71,7 @@ cachedRpmOstree staged cachedir mode = do
         (diff,_err) <- cmdStdErr "diff" ["-u0", previous, latest]
         let diffs = lines diff
         when (length (filter (not . noise) diffs) > 3) $
-          putStrLn $ "\nDiff with last rpm-ostree update:\n" ++ unlines diffs
+          putStrLn $ "Diff" +-+ (if mode == Update then "preview" else "") +-+ "with last rpm-ostree update:\n" ++ unlines diffs
         if length diffs <= 9
           -- FIXME print old timestamp
           then do
