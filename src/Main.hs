@@ -42,15 +42,12 @@ main = do
   createDirectoryIfMissing True cachedir
   -- whether latest is a staged deployment
   staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
-  -- FIXME
   unless staged $
     putStrLn "current latest deployment is live"
-  -- putStrLn "Preview:"
   changed <- cachedRpmOstree staged cachedir Update
   when changed $ do
     prompt_ "Press Enter to update"
     cmd_ rpmostree ["update"]
-  when changed $ do
     showChangelog <- yesno (Just changed) "Show changelog"
     when showChangelog $
       void $ cachedRpmOstree staged cachedir Changelog
