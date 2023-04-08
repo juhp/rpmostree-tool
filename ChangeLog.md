@@ -1,5 +1,8 @@
 # History for rpmostree-update
 
+## 0.1.2 (2023-04-08)
+- compact output: elide stdout for update and changelog if staged cache
+
 ## 0.1.1 (2023-01-31)
 - fix not updating when no staged deployment
 - do not show update diff if trivially short
