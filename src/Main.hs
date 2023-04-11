@@ -2,35 +2,56 @@
 
 module Main (main) where
 
-import Control.Monad.Extra (unless, void, when, whenJust)
+import Control.Monad.Extra (unless, unlessM, void, when, whenM, whenJust)
 import Data.List (isPrefixOf, isInfixOf)
 import Data.Maybe (isNothing)
 import SimpleCmd (cmd, cmd_, cmdStdErr, error', grep_, pipeBool, (+-+))
+import SimpleCmdArgs (simpleCmdArgs, subcommands, Subcommand(..), some, strArg)
 import SimplePrompt (prompt_, yesno)
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist,
-                         doesFileExist, removeFile, renameFile)
+                         doesFileExist, removeFile, renameFile,
+                         renameDirectory)
 import System.Environment.XDG.BaseDir (getUserCacheDir)
 import System.Exit (ExitCode(ExitSuccess))
 import System.FilePath ((</>))
 import System.IO (BufferMode(..), hSetBuffering, openFile, stdout, IOMode(WriteMode))
 import System.Process (runProcess,waitForProcess)
 
+import Paths_rpmostree_tool (version)
+
 rpmostree :: String
 rpmostree = "/usr/bin/rpm-ostree"
 
-data Mode = Update | Changelog
+data Mode = Update | Changelog | Install [String]
   deriving Eq
 
 instance Show Mode where
   show Update = "update"
   show Changelog = "changelog"
+  show (Install _) = "install"
 
 modeArgs :: Mode -> [String]
 modeArgs Update = ["update", "--preview"]
 modeArgs Changelog = ["db", "diff", "-c"]
+modeArgs (Install ps) = "install" : ps
 
 main :: IO ()
-main = do
+main =
+  simpleCmdArgs (Just version)
+  "rpm-ostree wrapper tool"
+  "see https://github.com/juhp/rpmostree-tool#readme" $
+  subcommands
+  [ Subcommand "update"
+    "rpm-ostree update with diff output against previous pull" $
+    runCmd <$> pure Update
+  , Subcommand "install"
+    "rpm-ostree install with diff output against previous pull" $
+    runCmd <$>
+    Install <$> some (strArg "PKG")
+  ]
+
+runCmd :: Mode -> IO ()
+runCmd mode = do
   hSetBuffering stdout NoBuffering
   let sysrootDir = "/sysroot"
   sysroot <- doesDirectoryExist sysrootDir
@@ -39,24 +60,33 @@ main = do
   exists <- doesFileExist rpmostree
   unless exists $
     error' $ rpmostree +-+ ": not found"
-  cachedir <- getUserCacheDir "rpmostree-updates"
+  oldcachedir <- getUserCacheDir "rpmostree-updates"
+  cachedir <- getUserCacheDir "rpmostree-tool"
+  whenM (doesDirectoryExist oldcachedir) $
+    unlessM (doesDirectoryExist cachedir) $
+    renameDirectory oldcachedir cachedir
   createDirectoryIfMissing True cachedir
   -- whether latest is a staged deployment
   staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
   unless staged $
     putStrLn "current latest deployment is live"
-  changed <- cachedRpmOstree staged cachedir Update
-  when changed $ do
-    prompt_ "Press Enter to update"
-    cmd_ rpmostree ["update"]
-    showChangelog <- yesno (Just changed) "Show changelog"
-    when showChangelog $
-      void $ cachedRpmOstree staged cachedir Changelog
+  changed <- cachedRpmOstree staged cachedir mode
+  case mode of
+    Update -> do
+      when changed $ do
+        prompt_ "Press Enter to update"
+        cmd_ rpmostree ["update"]
+        showChangelog <- yesno (Just changed) "Show changelog"
+        when showChangelog $
+          void $ cachedRpmOstree staged cachedir Changelog
+    _ -> return ()
 
+-- FIXME debug
 cachedRpmOstree :: Bool -> FilePath -> Mode -> IO Bool
 cachedRpmOstree staged cachedir mode = do
   let latest = cachedir </> "latest-" ++ show mode
   mprevious <- cacheFile latest
+  -- FIXME: or debug
   ok <- if isNothing mprevious
         then pipeBool (rpmostree, modeArgs mode) ("tee", [latest])
         else cmdToFile (rpmostree, modeArgs mode) latest
@@ -88,12 +118,12 @@ cachedRpmOstree staged cachedir mode = do
         then do
         useCache <-
           case mode of
-            Update -> return staged
             Changelog -> do
               -- ostree diff commit from: booted deployment (81ad560ed850559259e46d5739e8d9ac8714fbcbbd0d24257a8934db7730edab)
               cachedBootedDeployment <- init . tail . last . words <$> cmd "head" ["-1", latestCache]
               bootedChecksum <- cmd rpmostree ["status", "-b", "-J", "$.deployments[0].checksum"]
               return $ cachedBootedDeployment `isInfixOf` bootedChecksum
+            _ -> return staged
         if useCache
           then do
           renameFile latestCache previousCache

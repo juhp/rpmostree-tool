@@ -1,5 +1,5 @@
-name:                rpmostree-update
-version:             0.1.2
+name:                rpmostree-tool
+version:             0.1.3
 synopsis:            rpm-ostree update wrapper that caches change info
 description:
         A thin wrapper of "rpm-ostree update", which outputs diff of changes
@@ -12,8 +12,8 @@ author:              Jens Petersen <juhpetersen@gmail.com>
 maintainer:          Jens Petersen <juhpetersen@gmail.com>
 copyright:           2022-2023  Jens Petersen <juhpetersen@gmail.com>
 category:            Utility
-homepage:            https://github.com/juhp/rpmostree-update
-bug-reports:         https://github.com/juhp/rpmostree-update/issues
+homepage:            https://github.com/juhp/rpmostree-tool
+bug-reports:         https://github.com/juhp/rpmostree-tool/issues
 build-type:          Simple
 extra-doc-files:     README.md
                      ChangeLog.md
@@ -27,11 +27,11 @@ tested-with:         GHC == 8.6.5
 
 source-repository head
   type:                git
-  location:            https://github.com/juhp/rpmostree-update.git
+  location:            https://github.com/juhp/rpmostree-tool.git
 
-executable rpmostree-update
+executable rpmostree-tool
   main-is:             Main.hs
---  other-modules:       Paths_rpmostree_update
+  other-modules:       Paths_rpmostree_tool
   hs-source-dirs:      src
   build-depends:       base < 5,
                        directory,
@@ -39,6 +39,7 @@ executable rpmostree-update
                        filepath,
                        process,
                        simple-cmd,
+                       simple-cmd-args,
                        simple-prompt,
                        xdg-basedir
   default-language:    Haskell2010

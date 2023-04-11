@@ -1,4 +1,4 @@
-# rpmostree-update
+# rpmostree-tool
 
 Wrapper of `rpm-ostree update` that compares previous update output.
 Also outputs changelog diff.
@@ -8,10 +8,10 @@ Still experimental
 ## Usage
 
 ```shellsession
-$ rpmostree-update
+$ rpmostree-tool
 Diff preview with last rpm-ostree update:
---- /var/home/petersen/.cache/rpmostree-updates/previous-update	2023-04-07 17:28:25.888141380 +0800
-+++ /var/home/petersen/.cache/rpmostree-updates/latest-update	2023-04-08 16:52:17.208587593 +0800
+--- /var/home/petersen/.cache/rpmostree-tools/previous-update	2023-04-07 17:28:25.888141380 +0800
++++ /var/home/petersen/.cache/rpmostree-tools/latest-update	2023-04-08 16:52:17.208587593 +0800
 @@ -1 +1 @@
 -2 metadata, 0 content objects fetched; 53 KiB transferred in 2 seconds; 0 bytes content written
 +2 metadata, 0 content objects fetched; 53 KiB transferred in 3 seconds; 0 bytes content written
@@ -72,8 +72,8 @@ Upgraded:
 Run "systemctl reboot" to start a reboot
 Show changelog? [Y/n]:
 Diff with last rpm-ostree update:
---- /var/home/petersen/.cache/rpmostree-updates/previous-changelog	2023-04-07 17:33:47.654187774 +0800
-+++ /var/home/petersen/.cache/rpmostree-updates/latest-changelog	2023-04-08 16:54:41.497076118 +0800
+--- /var/home/petersen/.cache/rpmostree-tools/previous-changelog	2023-04-07 17:33:47.654187774 +0800
++++ /var/home/petersen/.cache/rpmostree-tools/latest-changelog	2023-04-08 16:54:41.497076118 +0800
 @@ -2 +2 @@
 -ostree diff commit to:   pending deployment (e877d6aef0f934b1f3f745851fa2b648fbe68a67eeafa4ad9c84a4c0e92f07e9)
 +ostree diff commit to:   pending deployment (26db46a6c118a4781a9a927678d048470fa03c846baf73aace786b332c62e32b)

@@ -1,4 +1,8 @@
-# History for rpmostree-update
+# History for rpmostree-tool
+
+## 0.1.3
+- renamed from rpmostree-update
+- new 'update' and 'install' commands
 
 ## 0.1.2 (2023-04-08)
 - compact output: elide stdout for update and changelog if staged cache
