@@ -68,8 +68,7 @@ runCmd mode = do
   createDirectoryIfMissing True cachedir
   -- whether latest is a staged deployment
   staged <- ("true" `isInfixOf`) <$> cmd rpmostree ["status", "-J", "$.deployments[0].staged"]
-  unless staged $
-    putStrLn "current latest deployment is live"
+  putStrLn $ "current deployment 0 is" +-+ if staged then "staged" else "live"
   changed <- cachedRpmOstree staged cachedir mode
   case mode of
     Update -> do
