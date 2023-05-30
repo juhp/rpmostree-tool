@@ -7,7 +7,7 @@ import Data.List (isPrefixOf, isInfixOf)
 import Data.Maybe (isNothing)
 import SimpleCmd (cmd, cmd_, cmdStdErr, error', grep_, pipeBool, (+-+))
 import SimpleCmdArgs (simpleCmdArgs, subcommands, Subcommand(..), some, strArg)
-import SimplePrompt (prompt_, yesno)
+import SimplePrompt (promptEnter, yesNoDefault)
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist,
                          doesFileExist, removeFile, renameFile,
                          renameDirectory)
@@ -73,9 +73,9 @@ runCmd mode = do
   case mode of
     Update -> do
       when changed $ do
-        prompt_ "Press Enter to update"
+        promptEnter "Press Enter to update"
         cmd_ rpmostree ["update"]
-        showChangelog <- yesno (Just changed) "Show changelog"
+        showChangelog <- yesNoDefault changed "Show changelog"
         when showChangelog $
           void $ cachedRpmOstree staged cachedir Changelog
     _ -> return ()
