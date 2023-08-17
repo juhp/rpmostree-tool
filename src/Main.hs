@@ -5,7 +5,7 @@ module Main (main) where
 import Control.Monad.Extra (unless, unlessM, void, when, whenM, whenJust)
 import Data.List (isPrefixOf, isInfixOf)
 import Data.Maybe (isNothing)
-import SimpleCmd (cmd, cmd_, cmdStdErr, error', grep_, pipeBool, (+-+))
+import SimpleCmd (cmd, cmdLines, cmdStdErr, error', grep_, pipeBool, (+-+))
 import SimpleCmdArgs (simpleCmdArgs, subcommands, Subcommand(..), some, strArg)
 import SimplePrompt (promptEnter, yesNoDefault)
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist,
@@ -74,7 +74,9 @@ runCmd mode = do
     Update -> do
       when changed $ do
         promptEnter "Press Enter to update"
-        cmd_ rpmostree ["update"]
+        -- filter out 'Run "systemctl reboot" to start a reboot'
+        out <- cmdLines rpmostree ["update"]
+        mapM_ putStrLn $ init out
         showChangelog <- yesNoDefault changed "Show changelog"
         when showChangelog $
           void $ cachedRpmOstree staged cachedir Changelog
