@@ -83,7 +83,7 @@ runCmd mode = do
 -- FIXME debug
 cachedRpmOstree :: Bool -> FilePath -> Mode -> IO Bool
 cachedRpmOstree staged cachedir mode = do
-  let latest = cachedir </> "latest-" ++ show mode
+  let latest = cachedir </> show mode ++ "-latest"
   mprevious <- cacheFile latest
   -- FIXME: or debug
   ok <- if isNothing mprevious
@@ -111,7 +111,7 @@ cachedRpmOstree staged cachedir mode = do
   where
     cacheFile :: FilePath -> IO (Maybe FilePath)
     cacheFile latestCache = do
-      let previousCache =  cachedir </> "previous-" ++ show mode
+      let previousCache =  cachedir </> show mode ++ "-previous"
       haveLatest <- doesFileExist latestCache
       if haveLatest
         then do
